@@ -5,7 +5,7 @@ function SummaryCardContent(props) {
         <div className="flex flex-col h-full w-full">
             <h1 className="text-2xl font-bold">{props.title}</h1>
 
-            <div className="flex mt-0.5 h-6">
+            <div className="flex mt-2 h-6">
                 <div className="h-full w-1 bg-red">&#8203;</div>
                 <p className="pl-2 font-heebo text-gray text-sm self-center">{props.username} ({props.company})</p>
             </div>
