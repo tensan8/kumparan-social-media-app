@@ -1,9 +1,10 @@
 
-
 function Card(props) {
     return(
         <div className="flex w-full">
-            <div className="flex bg-white rounded-xl drop-shadow w-2/3 h-72 mt-10 mx-auto px-10 py-8">
+            <div className={`${props.cardSize} ${props.clickable ? 'cursor-pointer' : 'cursor'} flex bg-white rounded-xl drop-shadow mt-10 mx-auto px-10 py-8`}
+                 onClick={props.onCardClick}
+            >
                 {props.cardContent}
             </div>
         </div>
@@ -11,7 +12,9 @@ function Card(props) {
 }
 
 Card.defaultProps = {
-    cardContent: <div>&#8203;</div>
+    cardContent: <div>&#8203;</div>,
+    cardSize: "w-2/3 h-72", //Default size for summary cards
+    clickable: false,
 }
 
 export default Card;

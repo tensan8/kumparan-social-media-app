@@ -1,16 +1,22 @@
 import Card from "../atoms/card";
 import SummaryCardContent from "../atoms/summaryCardContent";
+import { useNavigate } from "react-router-dom";
 
 function SummaryCard(props) {
+    let navigate = useNavigate();
+
     return (
-        <Card cardContent = {
-            <SummaryCardContent title = {props.title}
-                username = {props.username}
-                company = {props.company}
-                content = {props.content}
-                numberOfComment = {props.numberOfComment}
-            />
-        }/>
+        <Card clickable = {true}
+            onCardClick = {() => {navigate("/post-detail")}}
+            cardContent = {
+                <SummaryCardContent title = {props.title}
+                    username = {props.username}
+                    company = {props.company}
+                    content = {props.content}
+                    numberOfComment = {props.numberOfComment}
+                />
+            }
+        />
     )
 }
 

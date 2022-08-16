@@ -1,14 +1,13 @@
 import logo from '../assets/logo.png';
 import backArrow from '../assets/back.png';
+import { useNavigate } from 'react-router-dom';
 
 function Navbar(props) {
+    let navigate = useNavigate();
+
     return(
         <div className='flex min-w-max bg-white rounded-b-3xl drop-shadow sticky top-0 z-50'>
-            {props.backArrowAvailable ? 
-                <img src={backArrow} alt="Back Arrow" className='absolute w-6 h-6 left-10 top-6 cursor-pointer' onClick={(e) => {}}/>
-            : 
-                null
-            }
+            <img src={backArrow} alt="Back Arrow" className={`absolute w-6 h-6 left-10 top-6 cursor-pointer ${props.backArrowAvailable ? 'opacity-100' : 'opacity-0'}`} onClick={() => {navigate(-1)}}/>
             
             <div className='mx-auto flex'>
                 <img src={logo} alt="logo of kumparan" className="w-36"/>

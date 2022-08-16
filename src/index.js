@@ -6,14 +6,16 @@ import { Provider } from 'react-redux';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import Homepage from './pages/homepage';
+import PostDetail from './pages/postDetail';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={store}>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Homepage />} />
-        <Route pat="/home" element={<Homepage />} />
+        <Route exact path="/" element={<Homepage />} />
+        <Route exact path="/home" element={<Homepage />} />
+        <Route exact path="/post-detail" element={<PostDetail />} />
       </Routes>
     </BrowserRouter>
   </Provider>
