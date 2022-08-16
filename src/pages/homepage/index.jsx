@@ -4,10 +4,12 @@ import Navbar from "../../molecules/navbar";
 import SummaryCard from "../../molecules/summaryCard";
 import { getAllPosts } from '../../store/actions/postAction';
 import { getUsersData } from '../../store/actions/userAction';
+import { getAllComments } from '../../store/actions/commentAction';
 
 function Homepage(props) {
     const [allPosts, setAllPosts] = useState([]);
     const [allUsers, setAllUsers] = useState([]);
+    const [allComments, setAllComments] = useState([]);
 
     useEffect(() => {
         props.getAllPosts();
@@ -23,6 +25,13 @@ function Homepage(props) {
     // eslint-disable-next-line
     [props.users.length])
 
+    useEffect(() => {
+        props.getAllComments();
+        setAllComments(props.comments);
+    }, 
+    // eslint-disable-next-line
+    [props.comments.length])
+
     const findUser = (userId) => {
         for(let i = 0; i < allUsers.length; i++) {
             if(allUsers[i].id === userId) {
@@ -30,19 +39,32 @@ function Homepage(props) {
             }
         }
     }
-   
+
+    const countComment = (postId) => {
+        let counter = 0;
+
+        for(let i = 0; i < allComments.length; i++) {
+            if(allComments[i].postId === postId) {
+                counter++;
+            }
+        }
+
+        return(counter);
+    }
+
     return (
         <div className="block pb-10">
             <Navbar backArrowAvailable = {false}/>
 
             {allPosts && allPosts.map((post, index) => {
                 const user = findUser(post.userId);
+                const commentCount = countComment(post.id);
                 return (
                     <SummaryCard title = {post.title} 
                         username = {user.username}
                         company = {user.company.name}
                         content = {post.body}
-                        numberOfComment = {post.numberOfComment}
+                        numberOfComment = {commentCount}
                         key = {index}
                     />
                 )
@@ -51,9 +73,12 @@ function Homepage(props) {
     )
 }
 
-const mapStateToProps = (state) => ({ posts: state.postReducer.posts, users: state.userReducer.users })
+const mapStateToProps = (state) => ({ posts: state.postReducer.posts, 
+    users: state.userReducer.users, 
+    comments: state.commentReducer.comment
+})
 
-const mapDispatchToProps = {getAllPosts, getUsersData}
+const mapDispatchToProps = {getAllPosts, getUsersData, getAllComments}
 
 export default connect(mapStateToProps, mapDispatchToProps)(Homepage);
 
