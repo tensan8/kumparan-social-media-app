@@ -1,12 +1,15 @@
 import { render, screen } from '@testing-library/react';
+import React, { useEffect, useState } from 'react';
 import logoSrc from './assets/logo.png';
 import Navbar from './molecules/navbar';
 import SummaryCard from './molecules/summaryCard';
 import Homepage from './pages/homepage';
+import { Provider } from 'react-redux';
+import store from './store';
 
 
 test('render navigation bar', () => {
-  render(<Homepage />);
+  render(<Provider store={store}><Homepage /></Provider>);
   const navbarImage = screen.getByAltText('logo of kumparan');
   expect(navbarImage.src).toContain(logoSrc);
 })

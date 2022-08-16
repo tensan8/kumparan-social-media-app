@@ -3,24 +3,44 @@ import { connect } from 'react-redux';
 import Navbar from "../../molecules/navbar";
 import SummaryCard from "../../molecules/summaryCard";
 import { getAllPosts } from '../../store/actions/postAction';
+import { getUsersData } from '../../store/actions/userAction';
 
 function Homepage(props) {
     const [allPosts, setAllPosts] = useState([]);
+    const [allUsers, setAllUsers] = useState([]);
 
     useEffect(() => {
         props.getAllPosts();
-        setAllPosts(props.posts[0]);
-    }, [props.posts.length]);
+        setAllPosts(props.posts);
+    }, 
+    // eslint-disable-next-line
+    [props.posts.length]);
+
+    useEffect(() => {
+        props.getUsersData();
+        setAllUsers(props.users);
+    }, 
+    // eslint-disable-next-line
+    [props.users.length])
+
+    const findUser = (userId) => {
+        for(let i = 0; i < allUsers.length; i++) {
+            if(allUsers[i].id === userId) {
+                return(allUsers[i])
+            }
+        }
+    }
    
     return (
         <div className="block pb-10">
             <Navbar backArrowAvailable = {false}/>
 
             {allPosts && allPosts.map((post, index) => {
+                const user = findUser(post.userId);
                 return (
                     <SummaryCard title = {post.title} 
-                        username = {post.username}
-                        company = {post.company}
+                        username = {user.username}
+                        company = {user.company.name}
                         content = {post.body}
                         numberOfComment = {post.numberOfComment}
                         key = {index}
@@ -31,33 +51,17 @@ function Homepage(props) {
     )
 }
 
-const mapStateToProps = (state) => ({ posts: state.postReducer.posts })
+const mapStateToProps = (state) => ({ posts: state.postReducer.posts, users: state.userReducer.users })
 
-const mapDispatchToProps = {getAllPosts}
+const mapDispatchToProps = {getAllPosts, getUsersData}
 
 export default connect(mapStateToProps, mapDispatchToProps)(Homepage);
 
+/*
+Notes:
 
-// const AllContent = [
-//     {
-//         'title': "Title 1",
-//         'username': 'Username 1',
-//         'company': 'Company 1',
-//         'content': 'Content 1',
-//         'numberOfComment': 1
-//     },
-//     {
-//         'title': "Title 2",
-//         'username': 'Username 2',
-//         'company': 'Company 2',
-//         'content': 'Content 2',
-//         'numberOfComment': 2
-//     },
-//     {
-//         'title': "Title 3",
-//         'username': 'Username 3',
-//         'company': 'Company 3',
-//         'content': 'Content 3',
-//         'numberOfComment': 3
-//     },
-// ]
+1. The users' data (allUsers) was fetched in advance and stored in memory to be used as reference, in matching
+    the user id of the post and the user information, because fetching the user information using
+    API call one-by-one with high intensity apparently made the data to be returned in random.
+    It is either the problem with the codes or the capability of the API itself.
+*/

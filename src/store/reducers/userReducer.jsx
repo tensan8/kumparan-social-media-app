@@ -1,14 +1,14 @@
 const initialState = {
-    posts: []
+    users: []
 }
 
-const postReducer = (state = initialState, action) => {
+const userReducer = (state = initialState, action) => {
     const { type, payload } = action;
     switch(type) {
-        case "GET_ALL":
+        case "GET_USERS":
             return{
                 ...state,
-                posts: payload
+                users: payload
             }
         default:
             return{
@@ -17,4 +17,4 @@ const postReducer = (state = initialState, action) => {
     }
 }
 
-export default postReducer;
+export default userReducer;

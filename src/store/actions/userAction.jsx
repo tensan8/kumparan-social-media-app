@@ -1,11 +1,11 @@
 import axios from 'axios';
 
-export const getAllPosts = () => async dispatch => {
+export const getUsersData = () => async dispatch => {
     try{
-        const res = await axios.get(`https://jsonplaceholder.typicode.com/posts`);
+        const res = await axios.get(`https://jsonplaceholder.typicode.com/users`)
 
         dispatch({
-            type: "GET_ALL",
+            type: "GET_USERS",
             payload: res.data
         })
     }
