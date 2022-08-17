@@ -1,6 +1,6 @@
-function VerticalRedBar(props) {
+function VerticalRedBar() {
     return(
-        <div className="h-full w-1 bg-red mr-2">&#8203;</div>
+        <div className="min-h-full min-w-[0.2rem] bg-red mr-2">&#8203;</div>
     )
 }
 

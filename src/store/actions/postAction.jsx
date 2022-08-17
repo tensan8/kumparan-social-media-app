@@ -17,19 +17,19 @@ export const getAllPosts = () => async dispatch => {
     }
 }
 
-export const getSinglePost = (postId) => async dispatch => {
-    try{
-        const res = await axios.get(`https://jsonplaceholder.typicode.com/posts/${postId}`)
+// export const getSinglePost = (postId) => async dispatch => {
+//     try{
+//         const res = await axios.get(`https://jsonplaceholder.typicode.com/posts/${postId}`)
 
-        dispatch({
-            type: "GET_POST",
-            payload: res.data
-        })
-    }
-    catch(e) {
-        dispatch({
-            type: "ERROR",
-            payload: console.log(e)
-        })
-    }
-}
+//         dispatch({
+//             type: "GET_POST",
+//             payload: res.data
+//         })
+//     }
+//     catch(e) {
+//         dispatch({
+//             type: "ERROR",
+//             payload: console.log(e)
+//         })
+//     }
+// }

@@ -8,7 +8,7 @@ function DetailCardContent(props) {
     let navigate = useNavigate();
 
     return(
-        <div>
+        <div className="h-max">
             <div className="flex pb-5 cursor-pointer w-max h-fit" onClick={() => {navigate("/profile")}}>
                 <img src={UserIcon} alt = "User Icon" className="w-9 h-9" />
                 <div className="block pl-2 h-full my-auto pt-0.5">
@@ -20,17 +20,16 @@ function DetailCardContent(props) {
             <TitleHeading title = {props.title} />
             <ContentText content = {props.content} />
 
-            {props.commentUsername != null ?
-                <div className="flex mt-6 h-6">
-                    <VerticalRedBar />
-                    <p className="text-sm self-center">
-                        <span className="font-bold">{props.commentUsername}</span> {props.commentBody}
-                    </p>
-                </div>
-            : 
-                null
+            {props.commentsList.length !== 0 && props.commentsList.map((comment) => {
+                return(
+                    <div className="flex mt-6 h-max w-full" key={comment.id}>
+                        <VerticalRedBar />
+                        <p className="text-sm self-center">
+                            <span className="font-bold">{comment.name}</span> {comment.body}
+                        </p>
+                    </div>
+                )})
             }
-            
         </div>
     )
 }

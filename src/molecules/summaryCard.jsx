@@ -7,7 +7,10 @@ function SummaryCard(props) {
 
     return (
         <Card clickable = {true}
-            onCardClick = {() => {navigate("/post-detail")}}
+            onCardClick = {() => {navigate("/post-detail", { state: {
+                chosenUser: {'username': props.username, 'company': props.company},
+                chosenPost: {'postId': props.postId, 'title': props.title, 'content': props.content}
+            }})}}
             cardContent = {
                 <SummaryCardContent title = {props.title}
                     username = {props.username}

@@ -2,28 +2,35 @@ import React, { useEffect, useState } from 'react';
 import DetailCard from '../../molecules/detailCard';
 import Navbar from '../../molecules/navbar';
 import { connect } from 'react-redux';
-import { getSinglePost } from '../../store/actions/postAction';
+import { useLocation } from 'react-router-dom';
+import { getPostComment } from '../../store/actions/commentAction';
 
 function PostDetail(props) {
-    const [postDetail, setPostDetail] = useState([]);
+    const chosenData = useLocation().state;
+    const [commentsList, setCommentsList] = useState([]);
 
     useEffect(() => {
-        props.getSinglePost(props.postId);
-        setPostDetail(props.posts);
+        props.getPostComment(chosenData.chosenPost.postId);
+        setCommentsList(props.comment);
     }, 
     //eslint-disable-next-line
-    [props.posts.length]);
+    [props.comment.length]);
 
     return(
         <div className='block pb-10'>
             <Navbar />
-            <DetailCard title = {postDetail.title} content = {postDetail.body}/>
+            <DetailCard title = {chosenData.chosenPost.title} 
+                content = {chosenData.chosenPost.content}
+                username = {chosenData.chosenUser.username}
+                company = {chosenData.chosenUser.company}
+                commentsList = {commentsList}
+            />
         </div>
     )
 }
 
-const mapStateToProps = (state) => ({ posts: state.postReducer.posts })
+const mapStateToProps = (state) => ({ comment: state.commentReducer.comment })
 
-const mapDispatchToProps = {getSinglePost}
+const mapDispatchToProps = {getPostComment}
 
 export default connect(mapStateToProps, mapDispatchToProps)(PostDetail);

@@ -6,12 +6,17 @@ function DetailCard(props) {
         <Card cardSize = "w-2/3 h-max"
             cardContent = {
             <DetailCardContent title = {props.title} 
-                content = {props.content} 
-                commentUsername = {props.commentUsername} 
-                commentBody = {props.commentBody}
+                content = {props.content}
+                username = {props.username}
+                company = {props.company}
+                commentsList = {props.commentsList}
             />
         }/>
     )
+}
+
+DetailCard.defaultProps = {
+    commentsList: [],
 }
 
 export default DetailCard;

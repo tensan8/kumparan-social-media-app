@@ -56,7 +56,7 @@ function Homepage(props) {
         <div className="block pb-10">
             <Navbar backArrowAvailable = {false}/>
 
-            {allPosts && allPosts.map((post, index) => {
+            {allPosts && allPosts.map((post) => {
                 const user = findUser(post.userId);
                 const commentCount = countComment(post.id);
                 return (
@@ -65,7 +65,8 @@ function Homepage(props) {
                         company = {user.company.name}
                         content = {post.body}
                         numberOfComment = {commentCount}
-                        key = {index}
+                        postId = {post.id}
+                        key = {post.id}
                     />
                 )
             })}
