@@ -37,6 +37,7 @@ In order to make sure that the project can achieve its MVP state, some features 
 4. Code Refactorization for neater codes while increasing the reusability of the codes
 5. Do carousel or slideshow to show the other thumbnails for each album (increasing interactivity)
 6. Add more animations and transitions for interactivity (Some sections are actually clickable but the website has not reflected them well at the moment)
+7. Write more documentations as simple as writing comments on the codes
    
 
 ## Credits
