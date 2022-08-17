@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react';
+import { BrowserRouter } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 import logoSrc from './assets/logo.png';
 import Navbar from './molecules/navbar';
@@ -7,21 +8,34 @@ import Homepage from './pages/homepage';
 import { Provider } from 'react-redux';
 import store from './store';
 
-
+// Unit Testing 1
 test('render navigation bar', () => {
-  render(<Provider store={store}><Homepage /></Provider>);
+  render(
+    <Provider store={store}>
+      <BrowserRouter>
+        <Homepage />
+      </BrowserRouter>
+    </Provider>
+  );
   const navbarImage = screen.getByAltText('logo of kumparan');
   expect(navbarImage.src).toContain(logoSrc);
 })
 
+// Unit Testing 2
 test('hiding back arrow', () => {
-  const { queryByAltText } = render(<Navbar backArrowAvailable = {false}/>)
-  expect(queryByAltText("Back Arrow")).not.toBeInTheDocument();
+  const { queryByAltText } = render(
+    <BrowserRouter>
+      <Navbar backArrowAvailable = {false}/>
+    </BrowserRouter>
+  )
+  expect(queryByAltText("Back Arrow")).not.toBeVisible;
 })
 
+// Unit Testing 3
 test('render card content dynamically', () => {
   const TestContent = [
     {
+      'id': 1,
       'title': "Title 1",
       'username': 'Username 1',
       'company': 'Company 1',
@@ -29,6 +43,7 @@ test('render card content dynamically', () => {
       'numberOfComment': 1
     },
     {
+      'id': 2,
       'title': "Title 2",
       'username': 'Username 2',
       'company': 'Company 2',
@@ -38,16 +53,20 @@ test('render card content dynamically', () => {
   ]
 
   const { getByText } = render(
-    TestContent.map((post) => {
-      return (
-        <SummaryCard title = {post.title} 
-          username = {post.username}
-          company = {post.company}
-          content = {post.content}
-          numberOfComment = {post.numberOfComment}
-        />
-      )
-  }));
+      TestContent.map((post) => {
+        return (
+          <BrowserRouter key={post.id}>
+            <SummaryCard title = {post.title} 
+              username = {post.username}
+              company = {post.company}
+              content = {post.content}
+              numberOfComment = {post.numberOfComment}
+            />
+          </BrowserRouter>
+        )
+      })
+    
+  );
 
   expect(getByText("Title 1")).toBeInTheDocument;
   expect(getByText("Content 2")).toBeInTheDocument;
