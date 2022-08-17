@@ -3,7 +3,9 @@ import Card from "../atoms/card";
 
 function AllPhotosCard(props) {
     return(
-        <Card cardContent = {<AllPhotosContent albumTitle = {props.albumTitle} photos = {props.photos}/>} cardSize = {`${props.cardSize} mt-0`}/>
+        <Card cardContent = {<AllPhotosContent title = {props.title} photos = {props.photos} username = {props.username} cardSize = {props.cardSize}/>} 
+            cardSize = {`${props.cardSize} mt-0`}
+        />
     )
 }
 

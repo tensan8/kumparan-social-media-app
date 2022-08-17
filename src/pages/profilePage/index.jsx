@@ -15,6 +15,10 @@ function ProfilePage(props) {
     const [photosList, setPhotosList] = useState([]);
 
     useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [])
+
+    useEffect(() => {
         props.getUserAlbums(chosenUser.id);
         setAlbumsList(props.albums);
 

@@ -9,6 +9,7 @@ import Homepage from './pages/homepage';
 import PostDetail from './pages/postDetail';
 import ProfilePage from './pages/profilePage';
 import AlbumPhotosPage from './pages/albumPhotosPage';
+import EnlargedPhotoPage from './pages/enlargedPhotoPage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -20,6 +21,7 @@ root.render(
         <Route exact path="/post-detail" element={<PostDetail />} />
         <Route exact path="/profile" element={<ProfilePage />} />
         <Route exact path="/album-photos" element={<AlbumPhotosPage />} />
+        <Route exact path="/enlarged-photo" element={<EnlargedPhotoPage />} />
       </Routes>
     </BrowserRouter>
   </Provider>

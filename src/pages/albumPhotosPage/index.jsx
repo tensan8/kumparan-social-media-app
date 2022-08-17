@@ -12,6 +12,7 @@ function AlbumPhotosPage(props) {
 
     useEffect(() => {
         props.resetPhotosData();
+        window.scrollTo(0, 0);
         //eslint-disable-next-line
     }, [])
 
@@ -19,7 +20,11 @@ function AlbumPhotosPage(props) {
         <div className="block pb-10">
             <Navbar />
             <ProfileHead username = {chosenData.chosenUser.username}/>
-            <AllPhotosCard cardSize = {chosenData.cardSize} albumTitle = {chosenData.chosenAlbum.title} photos = {chosenData.photos}/>
+            <AllPhotosCard cardSize = {chosenData.cardSize} 
+                title = {chosenData.chosenAlbum.title} 
+                photos = {chosenData.photos}
+                username = {chosenData.chosenUser.username}
+            />
         </div>
     )
 }

@@ -1,25 +1,41 @@
+import TwoColorTitleHeading from "../molecules/twoColorTitleHeading";
 import ThumbnailWithTitle from "./thumbnailWithTitle";
-import TitleHeading from "./titleHeading";
+import { useNavigate } from 'react-router-dom';
 
 function AllPhotosContent(props) {
+    let navigate = useNavigate();
+
+    const enlargePhoto = (chosenPhoto) => {
+        navigate("/enlarged-photo", {state: {
+            username: props.username,
+            cardSize: props.cardSize,
+            albumTitle: props.title,
+            chosenPhoto: chosenPhoto
+        }})
+    }
+
     return(
         <div className="block w-full">
-            <div className="flex mb-1">
-                <TitleHeading title = "Albums:" extraStyling = "text-xl mb-1" />
-                <TitleHeading title = {props.albumTitle} extraStyling = "text-xl mb-1 text-teal pl-1" />
-            </div>
+            <TwoColorTitleHeading firstText = "Album:" secondText = {props.title} />
 
             <div className="grid grid-cols-5 gap-4">
                 {props.photos.map((photo, index) => {
                     if(index % 3 === 0) {
                         return(
                             <div className="row-span-2"  key = {index}>
-                                <ThumbnailWithTitle thumbnailSource = {photo.thumbnailUrl} albumTitle = {photo.title}/>
+                                <ThumbnailWithTitle thumbnailSource = {photo.thumbnailUrl} 
+                                    title = {photo.title}
+                                    onThumbnailClick = {() => enlargePhoto(photo)}
+                                />
                             </div>
                         )
                     }
                     return(
-                        <ThumbnailWithTitle thumbnailSource = {photo.thumbnailUrl} AlbumTitle = {photo.title} key = {index} />
+                        <ThumbnailWithTitle thumbnailSource = {photo.thumbnailUrl} 
+                            title = {photo.title}
+                            onThumbnailClick = {() => enlargePhoto(photo)}
+                            key = {index} 
+                        />
                     )
                 })}
             </div>

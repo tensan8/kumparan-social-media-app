@@ -24,7 +24,8 @@ In order to make sure that the project can achieve its MVP state, some features 
 1. Integration Efficiency (Some data were pulled on a mass scale, some API integrations can be made to be more efficient)
 2. Do more unit testing to make sure that the program fulfilled the standards
 3. Responsiveness of the website
-4. 
+4. Code Refactorization for neater codes while increasing the reusability of the codes
+5. 
 
 ## Credits
 Special Thanks: Kumparan

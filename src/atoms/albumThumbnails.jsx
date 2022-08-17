@@ -23,7 +23,7 @@ function AlbumThumbnails(props) {
                     props.albumList.map((album, index) => {
                         return(
                             <ThumbnailWithTitle
-                                albumTitle = {album.title}
+                                title = {album.title}
                                 thumbnailSource = {props.photosList[index][0].thumbnailUrl} 
                                 customStyling = "h-44"
                                 key={index}
