@@ -60,10 +60,9 @@ function Homepage(props) {
                 const user = findUser(post.userId);
                 const commentCount = countComment(post.id);
                 return (
-                    <SummaryCard title = {post.title} 
-                        username = {user.username}
-                        company = {user.company.name}
+                    <SummaryCard title = {post.title}
                         content = {post.body}
+                        user = {user}
                         numberOfComment = {commentCount}
                         postId = {post.id}
                         key = {post.id}

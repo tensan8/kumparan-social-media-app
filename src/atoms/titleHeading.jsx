@@ -1,7 +1,7 @@
 
 function TitleHeading(props) {
     return(
-        <h1 className="text-2xl font-bold">{props.title}</h1>
+        <h1 className={`text-2xl font-bold ${props.extraStyling}`}>{props.title}</h1>
     )
 }
 

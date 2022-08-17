@@ -2,7 +2,7 @@
 function Card(props) {
     return(
         <div className="flex w-full">
-            <div className={`${props.cardSize} ${props.clickable ? 'cursor-pointer' : 'cursor'} flex bg-white rounded-xl drop-shadow mt-10 mx-auto px-10 py-8`}
+            <div className={`mt-10 ${props.cardSize} ${props.clickable ? 'cursor-pointer' : 'cursor'} flex bg-white rounded-xl drop-shadow mx-auto px-10 py-8`}
                  onClick={props.onCardClick}
             >
                 {props.cardContent}

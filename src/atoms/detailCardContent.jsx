@@ -9,11 +9,14 @@ function DetailCardContent(props) {
 
     return(
         <div className="h-max">
-            <div className="flex pb-5 cursor-pointer w-max h-fit" onClick={() => {navigate("/profile")}}>
+            <div className="flex pb-5 cursor-pointer w-max h-fit" 
+                onClick={() => {navigate("/profile", { state: props.chosenUser
+            })}}
+            >
                 <img src={UserIcon} alt = "User Icon" className="w-9 h-9" />
                 <div className="block pl-2 h-full my-auto pt-0.5">
-                    <p className="text-xs text-gray font-heebo">{props.username}</p>
-                    <p className="text-xs text-gray font-heebo">{props.company}</p>
+                    <p className="text-xs text-gray font-heebo">{props.chosenUser.username}</p>
+                    <p className="text-xs text-gray font-heebo">{props.chosenUser.company.name}</p>
                 </div>
             </div>
             

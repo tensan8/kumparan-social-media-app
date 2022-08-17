@@ -21,8 +21,7 @@ function PostDetail(props) {
             <Navbar />
             <DetailCard title = {chosenData.chosenPost.title} 
                 content = {chosenData.chosenPost.content}
-                username = {chosenData.chosenUser.username}
-                company = {chosenData.chosenUser.company}
+                chosenUser = {chosenData.chosenUser}
                 commentsList = {commentsList}
             />
         </div>

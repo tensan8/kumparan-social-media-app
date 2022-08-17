@@ -7,8 +7,7 @@ function DetailCard(props) {
             cardContent = {
             <DetailCardContent title = {props.title} 
                 content = {props.content}
-                username = {props.username}
-                company = {props.company}
+                chosenUser = {props.chosenUser}
                 commentsList = {props.commentsList}
             />
         }/>
