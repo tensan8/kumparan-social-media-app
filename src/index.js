@@ -7,6 +7,7 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import Homepage from './pages/homepage';
 import PostDetail from './pages/postDetail';
+import ProfilePage from './pages/profilePage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -16,6 +17,7 @@ root.render(
         <Route exact path="/" element={<Homepage />} />
         <Route exact path="/home" element={<Homepage />} />
         <Route exact path="/post-detail" element={<PostDetail />} />
+        <Route exact path="/profile" element={<ProfilePage />}/>
       </Routes>
     </BrowserRouter>
   </Provider>

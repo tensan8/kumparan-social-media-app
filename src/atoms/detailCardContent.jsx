@@ -2,12 +2,14 @@ import TitleHeading from "./titleHeading";
 import VerticalRedBar from "./verticalRedBar";
 import ContentText from "./contentText";
 import UserIcon from '../assets/user.png';
-
+import { useNavigate } from 'react-router-dom';
 
 function DetailCardContent(props) {
+    let navigate = useNavigate();
+
     return(
         <div>
-            <div className="flex pb-5 cursor-pointer w-max h-fit" onClick={() => {console.log("User Clicked")}}>
+            <div className="flex pb-5 cursor-pointer w-max h-fit" onClick={() => {navigate("/profile")}}>
                 <img src={UserIcon} alt = "User Icon" className="w-9 h-9" />
                 <div className="block pl-2 h-full my-auto pt-0.5">
                     <p className="text-xs text-gray font-heebo">{props.username}</p>

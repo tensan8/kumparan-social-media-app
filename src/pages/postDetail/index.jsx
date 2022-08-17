@@ -10,7 +10,9 @@ function PostDetail(props) {
     useEffect(() => {
         props.getSinglePost(props.postId);
         setPostDetail(props.posts);
-    }, [props.posts.length]);
+    }, 
+    //eslint-disable-next-line
+    [props.posts.length]);
 
     return(
         <div className='block pb-10'>
