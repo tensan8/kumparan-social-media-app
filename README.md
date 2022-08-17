@@ -7,6 +7,9 @@ This project will focus on developing a website by utilizing ReactJS where the w
 ## IMPORTANT
 The website is not that responsive at this moment thus it is recommended to open the website on larger device (e.g. Laptop, Monitor).
 
+## Deployed Website
+https://kumparanshare.netlify.app/
+
 ## Design and Brainstorming
 Before writing the codes, the interface design of the website must be ready in advance thus it will help the programming stage to be easier and faster with the help of the clear documentation. By that, below is the link that the creator used in writing down the ideas that had been gathered during the brainstorming phase along with the UI design of the website.
 
