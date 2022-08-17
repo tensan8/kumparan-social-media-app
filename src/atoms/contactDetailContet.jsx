@@ -22,7 +22,7 @@ function ContactDetailContent(props) {
 
             {detailMap.map((userInfo, index) => {
                 return(
-                    <p><span className="font-bold">{userInfo.detail}:</span> {userInfo.content}</p>
+                    <p key={index}><span className="font-bold">{userInfo.detail}:</span> {userInfo.content}</p>
                 )
             })}
         </div>

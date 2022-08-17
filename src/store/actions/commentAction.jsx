@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const getPostComment = (postId) => async dispatch => {
     try{
-        const res = await axios.get(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`)
+        const res = await axios.get(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`);
 
         dispatch({
             type: "GET_POST_COMMENT",
