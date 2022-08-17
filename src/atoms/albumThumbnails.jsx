@@ -6,11 +6,19 @@ function AlbumThumbnails(props) {
         <div className="w-full">
             <TitleHeading title = "Albums" extraStyling = "text-xl mb-1"/>
 
-            <div className="grid grid-cols-5 gap-1 w-full">
+            <div className="grid grid-cols-5 gap-2 w-full">
                 {props.photosList.length === props.albumList.length ? 
                     props.albumList.map((album, index) => {
                         return(
-                            <ThumbnailWithTitle albumTitle = {album.title} thumbnailSource = {props.photosList[index][0].thumbnailUrl} key={index}/>
+                            <ThumbnailWithTitle album = {album}
+                                fullPhotos = {props.photosList[index]}
+                                title = {album.title}
+                                thumbnailSource = {props.photosList[index][0].thumbnailUrl} 
+                                chosenUser = {props.chosenUser} 
+                                cardSize = {props.cardSize}
+                                customStyling = "h-44"
+                                key={index}
+                            />
                         )
                     })
                 :

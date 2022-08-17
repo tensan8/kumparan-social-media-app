@@ -37,14 +37,12 @@ function ProfilePage(props) {
     //eslint-disable-next-line
     [props.photos])
 
-    console.log(photosList)
-
     return(
         <div className="block pb-10">
             <Navbar />
             <ProfileHead username = {chosenUser.username}/>
             <ContactDetail chosenUser = {chosenUser} cardSize = {props.cardSize}/>
-            <AlbumsCard cardSize = {props.cardSize} albumList = {albumsList} photosList = {photosList}/>
+            <AlbumsCard cardSize = {props.cardSize} albumList = {albumsList} photosList = {photosList} chosenUser = {chosenUser}/>
         </div>
     )
 }
