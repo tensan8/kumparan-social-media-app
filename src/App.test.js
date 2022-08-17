@@ -37,18 +37,26 @@ test('render card content dynamically', () => {
     {
       'id': 1,
       'title': "Title 1",
-      'username': 'Username 1',
-      'company': 'Company 1',
       'content': 'Content 1',
-      'numberOfComment': 1
+      'numberOfComment': 1,
+      'user': {
+        'username': 'Username 1',
+        'company': {
+          'name': 'Company 1',
+        }
+      },
     },
     {
       'id': 2,
       'title': "Title 2",
-      'username': 'Username 2',
-      'company': 'Company 2',
       'content': 'Content 2',
-      'numberOfComment': 2
+      'numberOfComment': 2,
+      'user': {
+        'username': 'Username 2',
+        'company': {
+          'name': 'Company 2',
+        }
+      },
     }
   ]
 
@@ -57,8 +65,7 @@ test('render card content dynamically', () => {
         return (
           <BrowserRouter key={post.id}>
             <SummaryCard title = {post.title} 
-              username = {post.username}
-              company = {post.company}
+              user = {post.user}
               content = {post.content}
               numberOfComment = {post.numberOfComment}
             />
