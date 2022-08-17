@@ -16,3 +16,7 @@ export const getUsersData = () => async dispatch => {
         })
     }
 }
+
+// export const getSingleUser = (userId) => async dispatch => {
+
+// }

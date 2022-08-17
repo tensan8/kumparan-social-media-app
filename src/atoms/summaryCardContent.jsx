@@ -1,16 +1,19 @@
 import commentIcon from '../assets/comment.png';
+import ContentText from './contentText';
+import TitleHeading from './titleHeading';
+import VerticalRedBar from './verticalRedBar';
 
 function SummaryCardContent(props) {
     return(
         <div className="flex flex-col h-full w-full">
-            <h1 className="text-2xl font-bold">{props.title}</h1>
+            <TitleHeading title = {props.title} />
 
             <div className="flex mt-2 h-6">
-                <div className="h-full w-1 bg-red">&#8203;</div>
-                <p className="pl-2 font-heebo text-gray text-sm self-center">{props.username} ({props.company})</p>
+                <VerticalRedBar />
+                <p className="font-heebo text-gray text-sm self-center">{props.username} ({props.company})</p>
             </div>
 
-            <p className="mt-2 mb-2 w-full grow">{props.content}</p>
+            <ContentText content = {props.content} />
 
             <div className='flex'>
                 <img src={commentIcon} alt="Comment Icon" className="w-5 h-5 my-auto" />
@@ -21,10 +24,8 @@ function SummaryCardContent(props) {
 }
 
 SummaryCardContent.defaultProps = {
-    title: "Missing Title",
     username: "Missing Username",
     company: "Missing Company",
-    content: "Missing Content Lorem Ipsum Dolor Sit Amet",
     numberOfComment: 0,
 }
 

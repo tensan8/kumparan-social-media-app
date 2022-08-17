@@ -5,7 +5,7 @@ const initialState = {
 const postReducer = (state = initialState, action) => {
     const { type, payload } = action;
     switch(type) {
-        case "GET_ALL":
+        case "GET_ALL" || "GET_POST":
             return{
                 ...state,
                 posts: payload
