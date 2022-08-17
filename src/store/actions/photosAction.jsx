@@ -18,3 +18,17 @@ export const getAlbumPhotos = (albumId) => async dispatch => {
         })
     }
 }
+
+export const resetPhotosData = () => async dispatch => {
+    try{
+        dispatch({
+            type: "RESET"
+        })
+    }
+    catch(e) {
+        dispatch({
+            type: "ERROR",
+            payload: console.log(e)
+        })
+    }
+}

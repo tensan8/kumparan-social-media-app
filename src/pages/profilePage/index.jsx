@@ -21,9 +21,9 @@ function ProfilePage(props) {
         var albumsIds = []
         props.albums.map((album) => {
             albumsIds.push(album.id)
+            return ""
         })
         setPhotosList([]);
-        console.log(albumsIds)
         props.getAlbumPhotos(albumsIds)
     }, 
     //eslint-disable-next-line
@@ -33,7 +33,11 @@ function ProfilePage(props) {
         if(props.photos.length !== 0 && props.photos) {
             setPhotosList([...photosList, props.photos])
         }
-    }, [props.photos])
+    }, 
+    //eslint-disable-next-line
+    [props.photos])
+
+    console.log(photosList)
 
     return(
         <div className="block pb-10">

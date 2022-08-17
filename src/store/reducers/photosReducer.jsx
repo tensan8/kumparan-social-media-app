@@ -10,6 +10,11 @@ const photosReducer = (state = initialState, action) => {
                 ...state,
                 photos: payload
             }
+        case "RESET":
+            return{
+                ...state,
+                photos: []
+            }
         default:
             return{
                 ...state
