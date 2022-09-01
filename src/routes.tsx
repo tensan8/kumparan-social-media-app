@@ -8,7 +8,7 @@ interface ExtendedRouteObject extends RouteObject {
     children?: ExtendedRouteObject[];
 }
 
-const Homepage = loadable(() => import('./pages/homepage'));
+const Homepage = loadable(() => import('./app/Homepage/pages'));
 
 export enum RoutePath {
     HOMEPAGE = '/homepage'
