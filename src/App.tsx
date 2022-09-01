@@ -1,13 +1,14 @@
-import {useRoutes} from 'react-router-dom';
-import {hot} from 'react-hot-loader/root';
-import getRoutes from './routes';
+import * as React from 'react'
+import { useRoutes } from 'react-router-dom'
+import { hot } from 'react-hot-loader/root'
+import getRoutes from './routes'
 
-const App = () => {
-    const routes = useRoutes(getRoutes());
+const App = (): JSX.Element => {
+  const routes = useRoutes(getRoutes())
 
-    return(
+  return (
         <>{routes}</>
-    )
+  )
 }
 
-export default hot(App);
+export default hot(App)
