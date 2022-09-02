@@ -1,5 +1,4 @@
 import * as React from 'react'
-import { DEFAULT_VALUE } from '../../../Common/utils/defaultValues'
 import Card from '../../../Common/atoms/card'
 import Navbar from '../../../Common/molecules/navbar'
 import SummaryCardContent from '../../../Common/atoms/summaryCardContent'
@@ -21,7 +20,7 @@ const Homepage = (): JSX.Element => {
                         numberOfComment={0}
                     />
                 }
-                cardSize={DEFAULT_VALUE.DEFAULT_CARD_SIZE}
+                cardSize='default'
                 clickable={true}
             />
         </div>

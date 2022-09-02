@@ -1,8 +1,14 @@
 import * as React from 'react'
 
+const cardSizeMap = {
+  default: 'w-3/4 h-72'
+} as const
+
+type CardSize = keyof typeof cardSizeMap
+
 interface CardProps {
   element: JSX.Element
-  cardSize: string
+  cardSize: CardSize
   clickable: boolean
   onCardClick?: (params: any) => any
 }
