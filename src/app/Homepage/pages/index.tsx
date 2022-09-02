@@ -1,8 +1,8 @@
 import * as React from 'react'
-import { DEFAULT_VALUE } from '../../../Common/utils/DefaultValues'
-import Card from '../../../Common/atoms/Card'
-import Navbar from '../../../Common/molecules/Navbar'
-import SummaryCardContent from '../../../Common/atoms/SummaryCardContent'
+import { DEFAULT_VALUE } from '../../../Common/utils/defaultValues'
+import Card from '../../../Common/atoms/card'
+import Navbar from '../../../Common/molecules/navbar'
+import SummaryCardContent from '../../../Common/atoms/summaryCardContent'
 
 const Homepage = (): JSX.Element => {
   return (
