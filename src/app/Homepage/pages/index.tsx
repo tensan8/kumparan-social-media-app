@@ -20,7 +20,6 @@ const Homepage = (): JSX.Element => {
                         numberOfComment={0}
                     />
                 }
-                cardSize='default'
                 clickable={true}
             />
         </div>
