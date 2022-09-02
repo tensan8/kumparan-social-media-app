@@ -3,6 +3,8 @@ import logo from '../../assets/logo.png'
 import backArrow from '../../assets/back.png'
 import { useNavigate } from 'react-router-dom'
 
+const backArrowStyling = 'absolute w-6 h-6 left-10 top-6' as const
+
 interface NavbarProps {
   backArrowAvailable: boolean
 }
@@ -20,12 +22,16 @@ const Navbar = (props: NavbarProps): JSX.Element => {
 
   return (
         <div className='flex min-w-max bg-white rounded-b-3xl drop-shadow sticky top-0 z-50'>
-            <img
-                src={backArrow}
-                alt="Back Arrow"
-                className={`absolute w-6 h-6 left-10 top-6 cursor-pointer ${props.backArrowAvailable ? 'opacity-100' : 'opacity-0'}`}
-                onClick={handleBackArrowClicked}
-            />
+            {props.backArrowAvailable
+              ? <img
+                  src={backArrow}
+                  alt="Back Arrow"
+                  className={`${backArrowStyling} cursor-pointer`}
+                  onClick={handleBackArrowClicked}
+                />
+              : <div className={`${backArrowStyling}`}>
+                </div>
+            }
 
             <div className='mx-auto flex cursor-pointer' onClick={handleLogoClicked}>
                 <img
