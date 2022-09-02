@@ -1,6 +1,8 @@
 import * as React from 'react'
-import Card from '../../../Common/atoms/card'
-import Navbar from '../../../Common/molecules/navbar'
+import { DEFAULT_VALUE } from '../../../Common/utils/DefaultValues'
+import Card from '../../../Common/atoms/Card'
+import Navbar from '../../../Common/molecules/Navbar'
+import SummaryCardContent from '../../../Common/atoms/SummaryCardContent'
 
 const Homepage = (): JSX.Element => {
   return (
@@ -10,8 +12,16 @@ const Homepage = (): JSX.Element => {
             />
 
             <Card
-                element={<h1>Test</h1>}
-                cardSize="w-3/4 h-72"
+                element={
+                    <SummaryCardContent
+                        title='Title'
+                        content='Content'
+                        username='Username'
+                        company='Company'
+                        numberOfComment={0}
+                    />
+                }
+                cardSize={DEFAULT_VALUE.DEFAULT_CARD_SIZE}
                 clickable={true}
             />
         </div>
