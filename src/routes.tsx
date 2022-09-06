@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { RouteObject } from 'react-router-dom'
 import loadable from '@loadable/component'
-import PostDetail from './app/PostDetail/pages'
+import PostDetail from './app/postDetail/pages'
 
 interface ExtendedRouteObject extends RouteObject {
   validation?: boolean
@@ -10,7 +10,7 @@ interface ExtendedRouteObject extends RouteObject {
   children?: ExtendedRouteObject[]
 }
 
-const Homepage = loadable(async () => await import('./app/Homepage/pages'))
+const Homepage = loadable(async () => await import('./app/homepage/pages'))
 
 export enum RoutePath {
   HOMEPAGE = '/homepage',

@@ -1,8 +1,8 @@
 import * as React from 'react'
 import { useNavigate } from 'react-router-dom'
-import Card from '../../../Common/atoms/card'
-import Navbar from '../../../Common/molecules/navbar'
-import SummaryCardContent from '../../../Common/atoms/summaryCardContent'
+import Card from '../../common/atoms/card'
+import Navbar from '../../common/molecules/navbar'
+import SummaryCardContent from '../../common/atoms/SummaryCardContent'
 
 const Homepage = (): JSX.Element => {
   const navigate = useNavigate()
