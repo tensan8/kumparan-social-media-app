@@ -20,31 +20,36 @@ const Homepage = (): JSX.Element => {
     const _getAllPost = async (): Promise<any> => {
       await getAllPost()
     }
-    _getAllPost().catch(e => console.log(e))
+    _getAllPost().catch((e) => console.log(e))
   }, [])
 
-  // console.log(result)
-
   return (
-        <div>
-            <Navbar
-                backArrowAvailable = {false}
-            />
+    <div>
+      <Navbar backArrowAvailable={false} />
 
-            <Card
-                element={
-                    <SummaryCardContent
-                        title='Title'
-                        content='Content'
-                        username='Username'
-                        company='Company'
-                        numberOfComment={0}
-                    />
-                }
-                clickable={true}
-                onCardClick={handleHomepageCardClicked}
-            />
-        </div>
+      {result.data !== null
+        ? (
+            result.data.map((post) => (
+          <Card
+            key={post.id}
+            element={
+              <SummaryCardContent
+                title={post.title}
+                content={post.body}
+                username={'user'}
+                company="Company"
+                numberOfComment={0}
+              />
+            }
+            clickable={true}
+            onCardClick={handleHomepageCardClicked}
+          />
+            ))
+          )
+        : (
+        <div />
+          )}
+    </div>
   )
 }
 

@@ -1,9 +1,14 @@
-import axios from 'axios'
 
-export const AllPostQuery = async (): Promise<any> => {
-  try {
-    return await axios.get('https://jsonplaceholder.typicode.com/posts')
-  } catch (e) {
-    console.log(e)
-  }
+import useSWR, { SWRResponse } from 'swr'
+import fetcher from '../../../utils/fetcher'
+
+interface PostDTO {
+  id: number
+  title: string
+  body: string
+  userId: number
+}
+
+export const AllPostQuery = (): SWRResponse<PostDTO[], any> => {
+  return useSWR<PostDTO[], any>('https://jsonplaceholder.typicode.com/posts', fetcher)
 }
