@@ -1,23 +1,19 @@
-import { AllPostQuery } from './../../sources/PostDataSource/PostQuery'
+import { PostDTO } from './../../sources/dtos/PostDTO'
+import { mapPostModel } from './../../mappers/PostMapper'
 import { PostModel } from '../../../domain/models/Post'
 import * as PostRepository from '../../../domain/repositories/PostRepositories'
 import { Result } from '../../../domain/vo/Result'
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import * as PostDataSource from '../../sources/PostDataSource'
 
 export const GetAllPosts = (): PostRepository.AllPosts => {
   const result = new Result<PostModel[]>()
+  const { data } = PostDataSource.AllPostQuery()
 
-  const getAllPost = async (): Promise<any> => {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const res = await AllPostQuery()
-    result.setData(res.data)
-  }
+  const retrieveAllPosts = (data != null || data !== undefined)
+    ? data.map((data: PostDTO) => mapPostModel(data))
+    : []
 
-  console.log(result)
+  result.setData(retrieveAllPosts)
 
-  return {
-    result,
-    getAllPost
-  }
+  return { result }
 }
