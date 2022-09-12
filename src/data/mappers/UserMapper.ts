@@ -6,7 +6,16 @@ export const mapUserModel = (userDTO: UserDTO): UserModel => {
     name: userDTO.name,
     username: userDTO.username,
     email: userDTO.email,
-    address: userDTO.address,
+    address: new Map<string, any>([
+      ['street', userDTO.address.street],
+      ['suite', userDTO.address.suite],
+      ['city', userDTO.address.city],
+      ['zipcode', userDTO.address.zipcode],
+      ['geo', new Map<string, string>([
+        ['lat', userDTO.address.geo.lat],
+        ['lng', userDTO.address.geo.lng]
+      ])]
+    ]),
     phone: userDTO.phone,
     website: userDTO.website,
     company: new Map<string, string>([
