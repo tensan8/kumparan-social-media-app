@@ -4,7 +4,7 @@ interface User {
   name: string
   username: string
   email: string
-  address: Map<string, string>
+  address: any
   phone: string
   website: string
   company: Map<string, string>

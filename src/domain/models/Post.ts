@@ -1,8 +1,7 @@
 import { BaseModel } from './baseModel'
-import { UserModel } from './User'
 
 interface Post {
-  userId: Pick<UserModel, 'id'>
+  userId: number
   title: string
   body: string
 }

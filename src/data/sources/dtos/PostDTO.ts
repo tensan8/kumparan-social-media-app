@@ -1,8 +1,6 @@
-import { UserModel } from '../../../domain/models/User'
-
 export interface PostDTO {
   id: number
-  userId: Pick<UserModel, 'id'>
+  userId: number
   title: string
   body: string
 }

@@ -1,14 +1,12 @@
 import { GetAllPosts } from '../../../data/repositories/PostRepositoryImpl/Post'
 import { PostModel } from '../../../domain/models/Post'
 
-interface HomepageViewModel {
+interface HomepagePostsViewModel {
   allPosts: PostModel[] | null
 }
 
-export const useHomepageViewModel = (): HomepageViewModel => {
+export const useHomepagePostsViewModel = (): HomepagePostsViewModel => {
   const { result } = GetAllPosts()
-
-  // console.log(result)
 
   return {
     allPosts: result.data

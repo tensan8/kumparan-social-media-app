@@ -2,7 +2,8 @@ import * as React from 'react'
 import { useNavigate } from 'react-router-dom'
 import Navbar from '../../common/molecules/navbar'
 import { MapPostToCardList } from '../mappers/cardMapper'
-import { useHomepageViewModel } from '../viewModels/homepageViewModel'
+import { useHomepagePostsViewModel } from '../viewModels/HomepagePostsViewModel'
+import { useHomepageUsersViewModel } from '../viewModels/HomepageUsersViewModel'
 
 const Homepage = (): JSX.Element => {
   const navigate = useNavigate()
@@ -11,7 +12,8 @@ const Homepage = (): JSX.Element => {
     navigate('/post-detail')
   }, [navigate])
 
-  const { allPosts } = useHomepageViewModel()
+  const { allPosts } = useHomepagePostsViewModel()
+  const { allUsers } = useHomepageUsersViewModel()
 
   return (
         <div>
@@ -19,8 +21,8 @@ const Homepage = (): JSX.Element => {
                 backArrowAvailable = {false}
             />
 
-            {allPosts != null
-              ? MapPostToCardList(allPosts, handleHomepageCardClicked)
+            {allPosts != null && allUsers != null && allUsers.length !== 0
+              ? MapPostToCardList(allPosts, handleHomepageCardClicked, allUsers)
               : <div></div>
             }
         </div>
