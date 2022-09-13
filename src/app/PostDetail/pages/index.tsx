@@ -1,5 +1,5 @@
 import * as React from 'react'
-import Navbar from '../../../Common/molecules/navbar'
+import Navbar from '../../common/molecules/navbar'
 
 const PostDetail = (): JSX.Element => {
   return (

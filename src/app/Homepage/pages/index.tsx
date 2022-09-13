@@ -1,8 +1,10 @@
 import * as React from 'react'
 import { useNavigate } from 'react-router-dom'
-import Card from '../../../Common/atoms/card'
-import Navbar from '../../../Common/molecules/navbar'
-import SummaryCardContent from '../../../Common/atoms/summaryCardContent'
+import Navbar from '../../common/molecules/navbar'
+import PostCardList from '../../common/molecules/postCardList'
+import { useHomepageCommentViewModel } from '../viewModels/HomepageCommentViewModel'
+import { useHomepagePostsViewModel } from '../viewModels/HomepagePostsViewModel'
+import { useHomepageUsersViewModel } from '../viewModels/HomepageUsersViewModel'
 
 const Homepage = (): JSX.Element => {
   const navigate = useNavigate()
@@ -11,24 +13,21 @@ const Homepage = (): JSX.Element => {
     navigate('/post-detail')
   }, [navigate])
 
+  const { allPosts } = useHomepagePostsViewModel()
+  const { allUsers } = useHomepageUsersViewModel()
+  const { allComments } = useHomepageCommentViewModel()
+
   return (
         <div>
             <Navbar
                 backArrowAvailable = {false}
             />
 
-            <Card
-                element={
-                    <SummaryCardContent
-                        title='Title'
-                        content='Content'
-                        username='Username'
-                        company='Company'
-                        numberOfComment={0}
-                    />
-                }
-                clickable={true}
-                onCardClick={handleHomepageCardClicked}
+            <PostCardList
+              postList = {allPosts}
+              clickCallback = {handleHomepageCardClicked}
+              usersList = {allUsers}
+              commentsList = {allComments}
             />
         </div>
   )
