@@ -1,18 +1,11 @@
 import * as React from 'react'
-import { useNavigate } from 'react-router-dom'
-import Navbar from '../../common/molecules/navbar'
-import PostCardList from '../../common/molecules/postCardList'
+import Navbar from '../../common/molecules/Navbar'
+import PostCardList from '../../common/molecules/PostCardList'
 import { useHomepageCommentViewModel } from '../viewModels/HomepageCommentViewModel'
 import { useHomepagePostsViewModel } from '../viewModels/HomepagePostsViewModel'
 import { useHomepageUsersViewModel } from '../viewModels/HomepageUsersViewModel'
 
 const Homepage = (): JSX.Element => {
-  const navigate = useNavigate()
-
-  const handleHomepageCardClicked = React.useCallback(() => {
-    navigate('/post-detail')
-  }, [navigate])
-
   const { allPosts } = useHomepagePostsViewModel()
   const { allUsers } = useHomepageUsersViewModel()
   const { allComments } = useHomepageCommentViewModel()
@@ -25,7 +18,6 @@ const Homepage = (): JSX.Element => {
 
             <PostCardList
               postList = {allPosts}
-              clickCallback = {handleHomepageCardClicked}
               usersList = {allUsers}
               commentsList = {allComments}
             />
