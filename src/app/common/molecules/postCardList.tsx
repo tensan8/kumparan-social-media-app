@@ -15,16 +15,15 @@ interface PostCardListProps {
 const PostCardList = (props: PostCardListProps): JSX.Element => {
   const navigate = useNavigate()
 
-  const cardClickCallback = React.useCallback((
-    user: UserModel,
-    post: PostModel) => {
-    navigate('/post-detail', {
-      state: {
-        chosenUser: user,
-        chosenPost: post
-      }
-    })
-  }, [])
+  const cardClickCallback = React.useCallback(
+    (user: UserModel, post: PostModel) => () => {
+      navigate('/post-detail', {
+        state: {
+          chosenUser: user,
+          chosenPost: post
+        }
+      })
+    }, [])
 
   const userLookup = React.useCallback((postUserId: number): any => {
     if (props.usersList != null) {
@@ -67,7 +66,7 @@ const PostCardList = (props: PostCardListProps): JSX.Element => {
                         />
                     }
                     clickable={true}
-                    onCardClick={() => cardClickCallback(user, post)}
+                    onCardClick={cardClickCallback(user, post)}
                     key={post.id}
                 />
               )

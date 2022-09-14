@@ -26,8 +26,7 @@ const PostDetail = (): JSX.Element => {
             />
           }
           cardSize='long'
-          clickable = {true}
-          onCardClick = {() => { return (null) }}
+          clickable = {false}
         />
     </div>
   )
