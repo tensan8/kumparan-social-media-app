@@ -17,7 +17,6 @@ const SummaryCardContent = (props: SummaryCardContentProps): JSX.Element => {
     <div className="flex flex-col h-full w-full">
         <TitleHeading
             text = {props.title}
-            extraStyling = ''
         />
 
         <div className="flex mt-2 h-6">

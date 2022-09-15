@@ -2,11 +2,11 @@ import * as React from 'react'
 
 interface TitleHeadingProps {
   text: string
-  extraStyling: string
+  extraStyling?: string
 }
 
 const TitleHeading = (props: TitleHeadingProps): JSX.Element => (
-  <h1 className={`text-2xl font-bold ${props.extraStyling}`}>
+  <h1 className={`text-2xl font-bold ${props.extraStyling !== undefined ? props.extraStyling : ''}`}>
     {props.text}
   </h1>
 )
