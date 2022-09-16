@@ -1,4 +1,4 @@
-import ContactDetailContent from "../atoms/contactDetailContet";
+import ContactDetailContent from "../atoms/ContactDetailContent";
 import Card from '../atoms/card';
 
 function ContactDetail(props) {

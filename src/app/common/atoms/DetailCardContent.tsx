@@ -17,15 +17,20 @@ interface DetailCardContentProps {
 const DetailCardContent = (props: DetailCardContentProps): JSX.Element => {
   const navigate = useNavigate()
 
-  const profileClickCallback = React.useCallback(() => {
-    navigate('/profile')
-  }, [])
+  const profileClickCallback = React.useCallback(
+    (user: UserModel) => () => {
+      navigate('/profile', {
+        state: {
+          chosenUser: user
+        }
+      })
+    }, [])
 
   return (
     <div className="h-max">
         <div
           className="flex pb-5 cursor-pointer w-max h-fit"
-          onClick={profileClickCallback}
+          onClick={profileClickCallback(props.chosenUser)}
         >
             <img src={UserIcon} alt = "User Icon" className="w-9 h-9" />
             <div className="block pl-2 h-full my-auto pt-0.5">

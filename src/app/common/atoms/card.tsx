@@ -12,6 +12,7 @@ interface CardProps {
   cardSize?: CardSize
   clickable: boolean
   onCardClick?: (params: any) => any
+  extraStyling?: string
 }
 
 const Card = ({
@@ -21,7 +22,7 @@ const Card = ({
   return (
         <div className="flex w-full">
             <div
-                className={`mt-10 ${cardSizeMap[cardSize]} ${props.clickable ? 'cursor-pointer' : 'cursor'} flex bg-white rounded-xl drop-shadow mx-auto px-10 py-8`}
+                className={`mt-10 ${cardSizeMap[cardSize]} ${props.clickable ? 'cursor-pointer' : 'cursor'} flex bg-white rounded-xl drop-shadow mx-auto px-10 py-8 ${props.extraStyling ?? ''}`}
                 onClick={props.onCardClick}
             >
                 {props.element}
