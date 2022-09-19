@@ -18,7 +18,7 @@ const ProfilePage = (): JSX.Element => {
             <Navbar
                 backArrowAvailable = {true}
             />
-            <ProfileHead username = {'Someone'}/>
+            <ProfileHead username = {chosenData.chosenUser.username}/>
             <Card
               element={
                 <ContactDetailContent
