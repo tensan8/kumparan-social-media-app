@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { BaseAlbumsPhotos } from '../utils/BaseAlbumsPhotos'
 // import { useNavigate } from 'react-router-dom'
 import { BaseContent } from '../utils/BaseContent'
 
@@ -8,8 +9,7 @@ const thumbnailWithTitleStyleMap = {
 
 type ThumbnailWithTitleStyle = keyof typeof thumbnailWithTitleStyleMap
 
-interface ThumbnailWithTitleProps extends BaseContent {
-  thumbnailSource: string
+interface ThumbnailWithTitleProps extends BaseContent, BaseAlbumsPhotos {
   style?: ThumbnailWithTitleStyle
 }
 

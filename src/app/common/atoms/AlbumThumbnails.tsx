@@ -1,12 +1,11 @@
 import * as React from 'react'
+import { BaseAlbumsPhotos } from '../utils/BaseAlbumsPhotos'
 import ThumbnailWithTitle from './ThumbnailWithTitle'
 import TitleHeading from './TitleHeading'
 
-// const interface AlbumThumbnailsProps {
+interface AlbumThumbnailsProps extends BaseAlbumsPhotos { }
 
-// }
-
-const AlbumThumbnails = (): JSX.Element => {
+const AlbumThumbnails = (props: AlbumThumbnailsProps): JSX.Element => {
   return (
         <div className="w-full">
             <TitleHeading
@@ -17,7 +16,7 @@ const AlbumThumbnails = (): JSX.Element => {
             <div className="grid grid-cols-5 gap-2 w-full">
                 <ThumbnailWithTitle
                     text = 'testing'
-                    thumbnailSource = 'https://i.pinimg.com/564x/40/a9/9c/40a99c5334e8c77058b9f97c3612b896.jpg'
+                    thumbnailSource = {props.thumbnailSource}
                 />
 
                 {/* {props.photosList.length === props.albumList.length ?
