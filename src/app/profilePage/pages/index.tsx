@@ -5,6 +5,7 @@ import Card from '../../common/atoms/Card'
 import ContactDetailContent from '../../common/atoms/ContactDetailContent'
 import { useLocation } from 'react-router-dom'
 import { UserModel } from '../../../domain/models/User'
+import AlbumThumbnails from '../../common/atoms/AlbumThumbnails'
 
 const ProfilePage = (): JSX.Element => {
   const chosenData = useLocation().state as {chosenUser: UserModel}
@@ -16,12 +17,27 @@ const ProfilePage = (): JSX.Element => {
             />
             <ProfileHead username = {'Someone'}/>
             <Card
-              element={<ContactDetailContent user = {chosenData.chosenUser}/>}
+              element={
+                <ContactDetailContent
+                  user = {chosenData.chosenUser}
+                />
+              }
               clickable={false}
+              cardSize = 'full'
               extraStyling='mt-0'
             />
-            {/* <ContactDetail chosenUser = {chosenUser} cardSize = {props.cardSize}/>
-            <AlbumsCard cardSize = {props.cardSize} albumList = {albumsList} photosList = {photosList} chosenUser = {chosenUser}/> */}
+            <Card
+              element = {
+                <AlbumThumbnails
+                  // albumList = {props.albumList}
+                  // photosList = {props.photosList}
+                  // chosenUser = {props.chosenUser}
+                  // cardSize = {props.cardSize}
+                />}
+              clickable = {false}
+              cardSize = 'full'
+              extraStyling = 'pb-12'
+            />
         </div>
   )
 }

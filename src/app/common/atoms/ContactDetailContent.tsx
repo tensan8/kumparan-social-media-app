@@ -12,7 +12,7 @@ const ContactDetailContent = (props: ContactDetailContentProps): JSX.Element => 
     <div>
         <TitleHeading
             text = 'Contact Detail'
-            extraStyling = "text-xl mb-1"
+            style = 'big'
         />
         {Array.from(MapUserInfoDetail(props.user)).map((data, index) => {
           return (

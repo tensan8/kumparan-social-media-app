@@ -1,8 +1,9 @@
 import * as React from 'react'
 
 const cardSizeMap = {
-  brief: 'w-3/4 h-72', // This one can be used for homepage card
-  long: 'w-2/3 h-max' // This one for the detail card
+  brief: 'w-3/4 h-72',
+  long: 'w-2/3 h-max',
+  full: 'w-3/4 h-max'
 } as const
 
 type CardSize = keyof typeof cardSizeMap

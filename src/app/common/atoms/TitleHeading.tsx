@@ -1,12 +1,22 @@
 import * as React from 'react'
+import { BaseContent } from '../utils/BaseContent'
 
-interface TitleHeadingProps {
-  text: string
-  extraStyling?: string
+const titleHeadingMap = {
+  big: 'text-xl mb-1',
+  standard: ''
+} as const
+
+type TitleHeadingStyle = keyof typeof titleHeadingMap
+
+interface TitleHeadingProps extends BaseContent {
+  style?: TitleHeadingStyle
 }
 
-const TitleHeading = (props: TitleHeadingProps): JSX.Element => (
-  <h1 className={`text-2xl font-bold ${props.extraStyling !== undefined ? props.extraStyling : ''}`}>
+const TitleHeading = ({
+  style = 'standard',
+  ...props
+}: TitleHeadingProps): JSX.Element => (
+  <h1 className={`text-2xl font-bold ${style}`}>
     {props.text}
   </h1>
 )
