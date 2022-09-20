@@ -4,4 +4,4 @@ import { PhotoModel } from './../models/Photo'
 
 export type PhotosResult = Result<PhotoModel[]>
 
-export interface AllPhotosOnAlbum extends BaseRepository<PhotosResult> { }
+export interface AlbumThumbnails extends BaseRepository<PhotosResult> { }

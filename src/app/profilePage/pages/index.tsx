@@ -6,12 +6,12 @@ import ContactDetailContent from '../../common/atoms/ContactDetailContent'
 import { useLocation } from 'react-router-dom'
 import { UserModel } from '../../../domain/models/User'
 import AlbumThumbnails from '../../common/atoms/AlbumThumbnails'
-import { useProfilePageAlbumsThumbnailsViewModel } from '../viewModels/ProfilePageAlbumsThumbnailsViewModel'
+import { useProfilePageAlbumsListViewModel } from '../viewModels/ProfilePageAlbumsListViewModel'
 
 const ProfilePage = (): JSX.Element => {
   const chosenData = useLocation().state as {chosenUser: UserModel}
 
-  const { albumThumbnailSources } = useProfilePageAlbumsThumbnailsViewModel(1)
+  const { albums } = useProfilePageAlbumsListViewModel(chosenData.chosenUser.id)
 
   return (
         <div className="block pb-10">
@@ -31,9 +31,12 @@ const ProfilePage = (): JSX.Element => {
             />
             <Card
               element = {
-                <AlbumThumbnails
-                  thumbnailSource = {albumThumbnailSources}
-                />}
+                albums != null && albums.length > 0
+                  ? <AlbumThumbnails
+                      albums={albums}
+                    />
+                  : <p>Loading...</p>
+              }
               clickable = {false}
               cardSize = 'full'
               extraStyling = 'pb-12'

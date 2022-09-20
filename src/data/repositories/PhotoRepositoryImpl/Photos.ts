@@ -5,15 +5,15 @@ import { Result } from './../../../domain/vo/Result'
 import * as PhotoRepositories from '../../../domain/repositories/PhotoRepositories'
 import * as PhotoQueries from '../../sources/PhotoDataSource'
 
-export const GetAllPhotosOnAlbum = (albumId: number): PhotoRepositories.AllPhotosOnAlbum => {
+export const GetAllPhotosOnAlbum = (albumId: number): PhotoRepositories.AlbumThumbnails => {
   const result = new Result<PhotoModel[]>()
   const { data } = PhotoQueries.AllPhotosOnAlbumQuery(albumId)
 
-  const retrieveAllPhotosOnAlbum = (data != null)
+  const retrieveThumbnails = (data != null)
     ? data.map((photo: PhotoDTO) => mapPhotoModel(photo))
     : []
 
-  result.setData(retrieveAllPhotosOnAlbum)
+  result.setData(retrieveThumbnails)
 
   return { result }
 }
