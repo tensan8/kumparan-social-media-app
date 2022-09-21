@@ -6,6 +6,7 @@ import ContentText from './ContentText'
 import { UserModel } from '../../../domain/models/User'
 import { PostModel } from '../../../domain/models/Post'
 import { CommentModel } from '../../../domain/models/Comment'
+import { useNavigate } from 'react-router-dom'
 
 interface DetailCardContentProps {
   chosenUser: UserModel
@@ -14,9 +15,23 @@ interface DetailCardContentProps {
 }
 
 const DetailCardContent = (props: DetailCardContentProps): JSX.Element => {
+  const navigate = useNavigate()
+
+  const profileClickCallback = React.useCallback(
+    (user: UserModel) => () => {
+      navigate('/profile', {
+        state: {
+          chosenUser: user
+        }
+      })
+    }, [])
+
   return (
     <div className="h-max">
-        <div className="flex pb-5 cursor-pointer w-max h-fit">
+        <div
+          className="flex pb-5 cursor-pointer w-max h-fit"
+          onClick={profileClickCallback(props.chosenUser)}
+        >
             <img src={UserIcon} alt = "User Icon" className="w-9 h-9" />
             <div className="block pl-2 h-full my-auto pt-0.5">
                 <p className="text-xs text-gray font-heebo">{props.chosenUser.username}</p>

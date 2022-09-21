@@ -1,8 +1,7 @@
 import * as React from 'react'
+import { BaseContent } from '../utils/BaseContent'
 
-interface ContentTextProps {
-  text: string
-}
+interface ContentTextProps extends BaseContent { }
 
 const ContentText = (props: ContentTextProps): JSX.Element => {
   return (<p className='mt-2 mb-2 w-full grow'>{props.text}</p>)
