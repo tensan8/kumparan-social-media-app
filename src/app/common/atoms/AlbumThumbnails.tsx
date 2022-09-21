@@ -1,7 +1,5 @@
 import * as React from 'react'
 import { AlbumModel } from '../../../domain/models/Album'
-import { PhotoModel } from '../../../domain/models/Photo'
-import { useProfilePagePhotoOnAlbumViewModel } from '../../profilePage/viewModels/ProfilePagePhotosOnAlbumViewModel'
 import ThumbnailWithTitle from './ThumbnailWithTitle'
 import TitleHeading from './TitleHeading'
 
@@ -10,24 +8,6 @@ interface AlbumThumbnailsProps {
 }
 
 const AlbumThumbnails = (props: AlbumThumbnailsProps): JSX.Element => {
-  const { photos } = useProfilePagePhotoOnAlbumViewModel(props.albums)
-
-  const GetThumbnail = React.useCallback(
-    (album: AlbumModel): string => {
-      let source = ''
-
-      if (photos != null && photos.length === props.albums.length) {
-        photos.map((photoList: PhotoModel[]) => {
-          if (photoList[0].albumId === album.id) {
-            source = photoList[0].thumbnailUrl
-          }
-          return null
-        })
-      }
-
-      return source
-    }, [photos])
-
   return (
         <div className="w-full">
             <TitleHeading
@@ -40,7 +20,7 @@ const AlbumThumbnails = (props: AlbumThumbnailsProps): JSX.Element => {
                   return (
                     <ThumbnailWithTitle
                         text = {album.title}
-                        thumbnailSource = {GetThumbnail(album)}
+                        albumId = {album.id}
                         key = {index}
                     />
                   )
