@@ -3,6 +3,7 @@ import { RouteObject } from 'react-router-dom'
 import loadable from '@loadable/component'
 import PostDetail from './app/postDetail/pages'
 import ProfilePage from './app/profilePage/pages'
+import AlbumPhotoPage from './app/albumPhotosPage/pages'
 
 interface ExtendedRouteObject extends RouteObject {
   validation?: boolean
@@ -16,7 +17,8 @@ const Homepage = loadable(async () => await import('./app/homepage/pages'))
 export enum RoutePath {
   HOMEPAGE = '/homepage',
   POST_DETAIL = '/post-detail',
-  PROFILE = '/profile'
+  PROFILE = '/profile',
+  ALBUM_PHOTOS = '/album-photos'
 }
 
 const routeObject: ExtendedRouteObject[] = [
@@ -35,6 +37,10 @@ const routeObject: ExtendedRouteObject[] = [
   {
     path: RoutePath.PROFILE,
     element: <ProfilePage />
+  },
+  {
+    path: RoutePath.ALBUM_PHOTOS,
+    element: <AlbumPhotoPage />
   }
 ]
 

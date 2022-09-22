@@ -1,10 +1,12 @@
 import * as React from 'react'
 import { AlbumModel } from '../../../domain/models/Album'
+import { UserModel } from '../../../domain/models/User'
 import ThumbnailWithTitle from './ThumbnailWithTitle'
 import TitleHeading from './TitleHeading'
 
 interface AlbumThumbnailsProps {
   albums: AlbumModel[]
+  user: UserModel
 }
 
 const AlbumThumbnails = (props: AlbumThumbnailsProps): JSX.Element => {
@@ -20,7 +22,8 @@ const AlbumThumbnails = (props: AlbumThumbnailsProps): JSX.Element => {
                   return (
                     <ThumbnailWithTitle
                         text = {album.title}
-                        albumId = {album.id}
+                        album = {album}
+                        user = {props.user}
                         key = {index}
                     />
                   )

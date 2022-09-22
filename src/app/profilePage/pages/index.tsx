@@ -18,7 +18,9 @@ const ProfilePage = (): JSX.Element => {
             <Navbar
                 backArrowAvailable = {true}
             />
-            <ProfileHead username = {chosenData.chosenUser.username}/>
+            <ProfileHead
+              username = {chosenData.chosenUser.username}
+            />
             <Card
               element={
                 <ContactDetailContent
@@ -34,6 +36,7 @@ const ProfilePage = (): JSX.Element => {
                 albums != null && albums.length > 0
                   ? <AlbumThumbnails
                       albums={albums}
+                      user={chosenData.chosenUser}
                     />
                   : <p>Loading...</p>
               }
