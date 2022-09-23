@@ -9,6 +9,10 @@ import Navbar from '../../common/molecules/Navbar'
 import ProfileHead from '../../common/molecules/ProfileHead'
 
 const AlbumPhotoPage = (): JSX.Element => {
+  React.useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   const chosenData = useLocation().state as {
     chosenUser: UserModel
     chosenAlbum: AlbumModel
@@ -31,6 +35,7 @@ const AlbumPhotoPage = (): JSX.Element => {
             />
           }
           clickable = { false }
+          cardSize = 'full'
         />
     </div>
   )

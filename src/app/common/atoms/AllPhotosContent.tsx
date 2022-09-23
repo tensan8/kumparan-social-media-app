@@ -1,21 +1,11 @@
-// const { useNavigate } = require("react-router-dom")
 import * as React from 'react'
-import { AlbumModel } from '../../../domain/models/Album'
-import { PhotoModel } from '../../../domain/models/Photo'
 import TwoColorTitleHeading from '../molecules/TwoColorTitleHeading'
+import { BaseAlbumPhotosList } from '../utils/BaseAlbumPhotosList'
+import ThumbnailWithTitle from './ThumbnailWithTitle'
 
-interface AllPhotosContentProps {
-  album: AlbumModel
-  photos: PhotoModel[]
-}
+interface AllPhotosContentProps extends BaseAlbumPhotosList { }
 
 const AllPhotosContent = (props: AllPhotosContentProps): JSX.Element => {
-  // const navigate = useNavigate()
-
-  // const photoClickCallback = React.useCallback(() => {
-  //     console.log("Called")
-  // })
-
   return (
     <div className="block w-full">
         <TwoColorTitleHeading
@@ -23,27 +13,18 @@ const AllPhotosContent = (props: AllPhotosContentProps): JSX.Element => {
             secondText = {props.album.title}
         />
 
-        {/* <div className="grid grid-cols-5 gap-4">
+        <div className="grid grid-cols-5 gap-4">
             {props.photos.map((photo, index) => {
-              if (index % 3 === 0) {
-                return (
-                        <div className="row-span-2" key = {index}>
-                            <ThumbnailWithTitle thumbnailSource = {photo.thumbnailUrl}
-                                title = {photo.title}
-                                onThumbnailClick = {() => enlargePhoto(photo)}
-                            />
-                        </div>
-                )
-              }
               return (
-                    <ThumbnailWithTitle thumbnailSource = {photo.thumbnailUrl}
-                        title = {photo.title}
-                        onThumbnailClick = {() => enlargePhoto(photo)}
-                        key = {index}
+                <div className={index % 3 === 0 ? 'row-span-2' : ''} key = {index}>
+                    <ThumbnailWithTitle
+                        thumbnailUrl = {photo.thumbnailUrl}
+                        text = {photo.title}
                     />
+                </div>
               )
             })}
-        </div> */}
+        </div>
     </div>
   )
 }
