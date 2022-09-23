@@ -5,22 +5,12 @@ import { UserModel } from '../../../domain/models/User'
 import { useProfilePagePhotoOnAlbumViewModel } from '../../profilePage/viewModels/ProfilePagePhotosOnAlbumViewModel'
 import { BaseContent } from '../utils/BaseContent'
 
-const thumbnailWithTitleStyleMap = {
-  standard: 'h-20'
-} as const
-
-type ThumbnailWithTitleStyle = keyof typeof thumbnailWithTitleStyleMap
-
 interface ThumbnailWithTitleProps extends BaseContent {
-  style?: ThumbnailWithTitleStyle
   album: AlbumModel
   user: UserModel
 }
 
-const ThumbnailWithTitle = ({
-  style = 'standard',
-  ...props
-}: ThumbnailWithTitleProps): JSX.Element => {
+const ThumbnailWithTitle = (props: ThumbnailWithTitleProps): JSX.Element => {
   const navigate = useNavigate()
   const { photos } = useProfilePagePhotoOnAlbumViewModel(props.album.id)
 
@@ -28,13 +18,14 @@ const ThumbnailWithTitle = ({
     navigate('/album-photos', {
       state: {
         chosenUser: props.user,
-        chosenAlbumId: props.album
+        chosenAlbum: props.album,
+        chosenPhotos: photos
       }
     })
   }, [])
 
   return (
-    <div className={`w-full h-full mt-2 cursor-pointer ${style}`} onClick={albumClickCallback}>
+    <div className={'w-full h-full mt-2 cursor-pointer'} onClick={albumClickCallback}>
         <img src={photos != null && photos.length > 0 ? photos[0].thumbnailUrl : ''} alt="Thumbnail" className='object-cover w-full h-full rounded-xl' />
         <div className="-translate-y-16">
             <div className="w-full h-16 bg-black bg-gradient-to-t from-black opacity-40 blur-[0.09rem] rounded-b-xl"></div>

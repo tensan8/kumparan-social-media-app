@@ -3,7 +3,8 @@ import { BaseContent } from '../utils/BaseContent'
 
 const titleHeadingMap = {
   big: 'text-xl mb-1',
-  standard: ''
+  standard: '',
+  bigTeal: 'text-xl mb-1 text-teal pl-1'
 } as const
 
 type TitleHeadingStyle = keyof typeof titleHeadingMap
@@ -16,7 +17,7 @@ const TitleHeading = ({
   style = 'standard',
   ...props
 }: TitleHeadingProps): JSX.Element => (
-  <h1 className={`text-2xl font-bold ${style}`}>
+  <h1 className={`text-2xl font-bold ${titleHeadingMap[style]}`}>
     {props.text}
   </h1>
 )
