@@ -1,5 +1,5 @@
-import { GetSinglePost } from './../../../data/repositories/PostRepositoryImpl/SinglePost'
-import { PostModel } from './../../../domain/models/Post'
+import { GetSinglePost } from '../../../data/repositories/postRepositoryImpl/singlePost'
+import { PostModel } from '../../../domain/models/post'
 
 interface DetailPagePostViewModel {
   post: PostModel | null

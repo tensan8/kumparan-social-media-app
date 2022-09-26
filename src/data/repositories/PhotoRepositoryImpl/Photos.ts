@@ -1,9 +1,9 @@
-import { PhotoDTO } from './../../sources/dtos/PhotoDTO'
-import { mapPhotoModel } from './../../mappers/PhotoMapper'
-import { PhotoModel } from './../../../domain/models/Photo'
-import { Result } from './../../../domain/vo/Result'
-import * as PhotoRepositories from '../../../domain/repositories/PhotoRepositories'
-import * as PhotoQueries from '../../sources/PhotoDataSource'
+import { PhotoDTO } from '../../sources/dtos/photoDTO'
+import { mapPhotoModel } from '../../mappers/photoMapper'
+import { PhotoModel } from '../../../domain/models/photo'
+import { Result } from '../../../domain/vo/result'
+import * as PhotoRepositories from '../../../domain/repositories/photoRepositories'
+import * as PhotoQueries from '../../sources/photoDataSource'
 
 export const GetAllPhotosOnAlbum = (albumId: number): PhotoRepositories.AlbumThumbnails => {
   const result = new Result<PhotoModel[]>()

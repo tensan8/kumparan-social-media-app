@@ -1,6 +1,6 @@
-import { CommentModel } from '../models/Comment'
-import { Result } from '../vo/Result'
-import { BaseRepository } from './BaseRepository'
+import { CommentModel } from '../models/comment'
+import { Result } from '../vo/result'
+import { BaseRepository } from './baseRepository'
 
 export type CommentResult = Result<CommentModel[]>
 

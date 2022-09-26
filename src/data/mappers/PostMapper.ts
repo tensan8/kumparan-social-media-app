@@ -1,5 +1,5 @@
-import { PostDTO } from './../sources/dtos/PostDTO'
-import { PostModel } from '../../domain/models/Post'
+import { PostDTO } from '../sources/dtos/postDTO'
+import { PostModel } from '../../domain/models/post'
 
 export const mapPostModel = (postDTO: PostDTO): PostModel => {
   return (new PostModel({

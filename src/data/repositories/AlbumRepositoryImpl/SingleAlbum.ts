@@ -1,8 +1,8 @@
-import { mapAlbumModel } from './../../mappers/AlbumMapper'
-import * as AlbumRepositories from '../../../domain/repositories/AlbumRepositories'
-import * as AlbumQueries from '../../sources/AlbumDataSource'
-import { Result } from '../../../domain/vo/Result'
-import { AlbumModel } from '../../../domain/models/Album'
+import { mapAlbumModel } from '../../mappers/albumMapper'
+import * as AlbumRepositories from '../../../domain/repositories/albumRepositories'
+import * as AlbumQueries from '../../sources/albumDataSource'
+import { Result } from '../../../domain/vo/result'
+import { AlbumModel } from '../../../domain/models/album'
 
 export const GetSingleAlbum = (albumId: number): AlbumRepositories.SingleAlbum => {
   const result = new Result<AlbumModel>()

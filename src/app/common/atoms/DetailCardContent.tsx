@@ -1,12 +1,12 @@
 import * as React from 'react'
-import VerticalRedBar from './VerticalRedBar'
+import VerticalRedBar from './verticalRedBar'
 import UserIcon from '../../../assets/user.png'
-import TitleHeading from './TitleHeading'
-import ContentText from './ContentText'
-import { CommentModel } from '../../../domain/models/Comment'
+import TitleHeading from './titleHeading'
+import ContentText from './contentText'
+import { CommentModel } from '../../../domain/models/comment'
 import { useNavigate } from 'react-router-dom'
-import { UserModel } from '../../../domain/models/User'
-import { PostModel } from '../../../domain/models/Post'
+import { UserModel } from '../../../domain/models/user'
+import { PostModel } from '../../../domain/models/post'
 
 interface DetailCardContentProps {
   commentsList: CommentModel[] | null

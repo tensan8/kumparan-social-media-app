@@ -1,5 +1,5 @@
 import * as React from 'react'
-import Navbar from './Navbar'
+import Navbar from './navbar'
 import ghost from '../../../assets/ghost.gif'
 
 const NotFoundPlaceholder = (): JSX.Element => {

@@ -1,9 +1,9 @@
-import { PostModel } from '../../../domain/models/Post'
+import { PostModel } from '../../../domain/models/post'
 import * as React from 'react'
-import Card from '../atoms/Card'
-import SummaryCardContent from '../atoms/SummaryCardContent'
-import { UserModel } from '../../../domain/models/User'
-import { CommentModel } from '../../../domain/models/Comment'
+import Card from '../atoms/card'
+import SummaryCardContent from '../atoms/summaryCardContent'
+import { UserModel } from '../../../domain/models/user'
+import { CommentModel } from '../../../domain/models/comment'
 import { useNavigate } from 'react-router-dom'
 
 interface PostCardListProps {

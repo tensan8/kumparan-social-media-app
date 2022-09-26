@@ -1,7 +1,7 @@
 import * as React from 'react'
-import TwoColorTitleHeading from '../molecules/TwoColorTitleHeading'
-import { BaseAlbumPhotosList } from '../utils/BaseAlbumPhotosList'
-import ThumbnailWithTitle from './ThumbnailWithTitle'
+import TwoColorTitleHeading from '../molecules/twoColorTitleHeading'
+import { BaseAlbumPhotosList } from '../utils/baseAlbumPhotosList'
+import ThumbnailWithTitle from './thumbnailWithTitle'
 
 interface AllPhotosContentProps extends BaseAlbumPhotosList { }
 

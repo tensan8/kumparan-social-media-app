@@ -1,9 +1,9 @@
 import * as React from 'react'
-import Navbar from '../../common/molecules/Navbar'
-import PostCardList from '../../common/molecules/PostCardList'
-import { useHomepageCommentViewModel } from '../viewModels/HomepageCommentViewModel'
-import { useHomepagePostsViewModel } from '../viewModels/HomepagePostsViewModel'
-import { useHomepageUsersViewModel } from '../viewModels/HomepageUsersViewModel'
+import Navbar from '../../common/molecules/navbar'
+import PostCardList from '../../common/molecules/postCardList'
+import { useHomepageCommentViewModel } from '../viewModels/homepageCommentViewModel'
+import { useHomepagePostsViewModel } from '../viewModels/homepagePostsViewModel'
+import { useHomepageUsersViewModel } from '../viewModels/homepageUsersViewModel'
 
 const Homepage = (): JSX.Element => {
   const { allPosts } = useHomepagePostsViewModel()

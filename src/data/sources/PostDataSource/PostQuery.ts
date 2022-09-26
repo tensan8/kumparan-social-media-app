@@ -1,4 +1,4 @@
-import { PostDTO } from './../dtos/PostDTO'
+import { PostDTO } from '../dtos/postDTO'
 import useSWR, { SWRResponse } from 'swr'
 import { fetcher } from '../../utils/fetcher'
 

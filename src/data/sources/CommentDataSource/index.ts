@@ -1,2 +1,2 @@
-export * from './CommentQuery'
-export * from './PostCommentQuery'
+export * from './commentQuery'
+export * from './postCommentQuery'

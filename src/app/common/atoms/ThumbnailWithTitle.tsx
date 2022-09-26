@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { BaseContent } from '../utils/BaseContent'
+import { BaseContent } from '../utils/baseContent'
 
 interface ThumbnailWithTitleProps extends BaseContent {
   thumbnailUrl: string

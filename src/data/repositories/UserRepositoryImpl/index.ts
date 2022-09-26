@@ -1,2 +1,2 @@
-export * from './UserInfo'
-export * from './SingleUser'
+export * from './userInfo'
+export * from './singleUser'

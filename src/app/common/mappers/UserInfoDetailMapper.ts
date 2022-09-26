@@ -1,4 +1,4 @@
-import { UserModel } from './../../../domain/models/User'
+import { UserModel } from '../../../domain/models/user'
 
 export const MapUserInfoDetail = (user: UserModel): Map<string, string> => {
   return (

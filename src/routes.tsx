@@ -4,7 +4,7 @@ import loadable from '@loadable/component'
 import PostDetail from './app/postDetail/pages'
 import ProfilePage from './app/profilePage/pages'
 import AlbumPhotoPage from './app/albumPhotosPage/pages'
-import NotFoundPlaceholder from './app/common/molecules/NotFoundPlaceholder'
+import NotFoundPlaceholder from './app/common/molecules/notFoundPlaceholder'
 
 interface ExtendedRouteObject extends RouteObject {
   validation?: boolean

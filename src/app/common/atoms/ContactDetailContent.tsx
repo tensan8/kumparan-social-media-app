@@ -1,7 +1,7 @@
 import * as React from 'react'
-import TitleHeading from './TitleHeading'
-import { UserModel } from '../../../domain/models/User'
-import { MapUserInfoDetail } from '../mappers/UserInfoDetailMapper'
+import TitleHeading from './titleHeading'
+import { UserModel } from '../../../domain/models/user'
+import { MapUserInfoDetail } from '../mappers/userInfoDetailMapper'
 
 interface ContactDetailContentProps {
   user: UserModel

@@ -1,8 +1,8 @@
-import { mapPostModel } from './../../mappers/PostMapper'
-import { PostModel } from './../../../domain/models/Post'
-import * as PostRepositories from '../../../domain/repositories/PostRepositories'
-import * as PostQueries from '../../sources/PostDataSource'
-import { Result } from '../../../domain/vo/Result'
+import { mapPostModel } from '../../mappers/postMapper'
+import { PostModel } from '../../../domain/models/post'
+import * as PostRepositories from '../../../domain/repositories/postRepositories'
+import * as PostQueries from '../../sources/postDataSource'
+import { Result } from '../../../domain/vo/result'
 
 export const GetSinglePost = (postId: number): PostRepositories.SinglePost => {
   const result = new Result<PostModel>()

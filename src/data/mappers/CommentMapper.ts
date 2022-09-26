@@ -1,5 +1,5 @@
-import { CommentModel } from './../../domain/models/Comment'
-import { CommentDTO } from './../sources/dtos/CommentDTO'
+import { CommentModel } from '../../domain/models/comment'
+import { CommentDTO } from '../sources/dtos/commentDTO'
 
 export const mapCommentModel = (commentDTO: CommentDTO): CommentModel => {
   return (new CommentModel({

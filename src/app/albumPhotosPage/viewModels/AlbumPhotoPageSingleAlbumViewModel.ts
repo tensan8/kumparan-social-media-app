@@ -1,5 +1,5 @@
-import { AlbumModel } from './../../../domain/models/Album'
-import { GetSingleAlbum } from './../../../data/repositories/AlbumRepositoryImpl/SingleAlbum'
+import { AlbumModel } from '../../../domain/models/album'
+import { GetSingleAlbum } from '../../../data/repositories/albumRepositoryImpl/singleAlbum'
 
 interface AlbumPhotoPageSingleAlbumViewModel {
   album: AlbumModel | null

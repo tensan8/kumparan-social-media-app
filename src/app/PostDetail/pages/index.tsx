@@ -1,12 +1,12 @@
 import * as React from 'react'
 import { useLocation } from 'react-router-dom'
-import Card from '../../common/atoms/Card'
-import DetailCardContent from '../../common/atoms/DetailCardContent'
-import NotFoundPlaceholder from '../../common/molecules/NotFoundPlaceholder'
-import Navbar from '../../common/molecules/Navbar'
-import { useDetailPageCommentsViewModel } from '../viewModels/DetailPageCommentsViewModel'
-import { useDetailPagePostViewModel } from '../viewModels/DetailPagePostViewModel'
-import { useDetailPageUserInfoViewModel } from '../viewModels/DetailPageUserInfoViewModel'
+import Card from '../../common/atoms/card'
+import DetailCardContent from '../../common/atoms/detailCardContent'
+import NotFoundPlaceholder from '../../common/molecules/notFoundPlaceholder'
+import Navbar from '../../common/molecules/navbar'
+import { useDetailPageCommentsViewModel } from '../viewModels/detailPageCommentsViewModel'
+import { useDetailPagePostViewModel } from '../viewModels/detailPagePostViewModel'
+import { useDetailPageUserInfoViewModel } from '../viewModels/detailPageUserInfoViewModel'
 
 const PostDetail = (): JSX.Element => {
   const params = new URLSearchParams(useLocation().search)
