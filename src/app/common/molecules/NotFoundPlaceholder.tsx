@@ -8,7 +8,7 @@ const NotFoundPlaceholder = (): JSX.Element => {
         <Navbar backArrowAvailable = {false} />
         <div className='flex flex-col w-full mt-36'>
           <div className='mx-auto my-auto'>
-            <h1 className='font-bold text-3xl mx-auto w-full text-center'>Page not found</h1>
+            <h1 className='font-bold text-3xl mx-auto w-full'>Page Not Found</h1>
             <img
               src={ghost}
               alt="Ghost GIF"
