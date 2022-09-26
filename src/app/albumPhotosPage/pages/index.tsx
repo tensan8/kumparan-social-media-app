@@ -5,7 +5,7 @@ import Card from '../../common/atoms/Card'
 import Navbar from '../../common/molecules/Navbar'
 import { useAlbumPhotoPageSingleAlbumViewModel } from '../viewModels/AlbumPhotoPageSingleAlbumViewModel'
 import ProfileHead from '../../common/molecules/ProfileHead'
-import { useProfilePagePhotoOnAlbumViewModel } from '../../profilePage/viewModels/ProfilePagePhotosOnAlbumViewModel'
+import { useAlbumPhotoPagePhotosViewModel } from '../viewModels/AlbumPhotoPagePhotosViewModel'
 
 const AlbumPhotoPage = (): JSX.Element => {
   React.useEffect(() => {
@@ -15,7 +15,7 @@ const AlbumPhotoPage = (): JSX.Element => {
   const params = new URLSearchParams(useLocation().search)
 
   const { album } = useAlbumPhotoPageSingleAlbumViewModel(Number(params.get('albumId')))
-  const { photos } = useProfilePagePhotoOnAlbumViewModel(Number(params.get('albumId')))
+  const { photos } = useAlbumPhotoPagePhotosViewModel(Number(params.get('albumId')))
 
   return (
     <div className="block pb-10">

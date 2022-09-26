@@ -4,24 +4,23 @@ import UserIcon from '../../../assets/user.png'
 import TitleHeading from './TitleHeading'
 import ContentText from './ContentText'
 import { CommentModel } from '../../../domain/models/Comment'
-import { useLocation, useNavigate } from 'react-router-dom'
-import { useProfilePageUserInfoViewModel } from '../../profilePage/viewModels/ProfilePageUserInfoViewModel'
-import { useDetailPagePostViewModel } from '../../postDetail/viewModels/DetailPagePostViewModel'
+import { useNavigate } from 'react-router-dom'
+import { UserModel } from '../../../domain/models/User'
+import { PostModel } from '../../../domain/models/Post'
 
 interface DetailCardContentProps {
   commentsList: CommentModel[] | null
+  user: UserModel | null
+  post: PostModel | null
 }
 
 const DetailCardContent = (props: DetailCardContentProps): JSX.Element => {
   const navigate = useNavigate()
 
-  const params = new URLSearchParams(useLocation().search)
-
-  const { user } = useProfilePageUserInfoViewModel(Number(params.get('userId')))
-  const { post } = useDetailPagePostViewModel(Number(params.get('postId')))
-
   const profileClickCallback = React.useCallback(() => {
-    navigate(`/profile?userId=${Number(params.get('userId'))}`)
+    if (props.user != null) {
+      navigate(`/profile?userId=${props.user.id}`)
+    }
   }, [])
 
   return (
@@ -32,16 +31,16 @@ const DetailCardContent = (props: DetailCardContentProps): JSX.Element => {
         >
             <img src={UserIcon} alt = "User Icon" className="w-9 h-9" />
             <div className="block pl-2 h-full my-auto pt-0.5">
-                <p className="text-xs text-gray font-heebo">{user?.username}</p>
-                <p className="text-xs text-gray font-heebo">{user?.company.get('name')}</p>
+                <p className="text-xs text-gray font-heebo">{props.user?.username}</p>
+                <p className="text-xs text-gray font-heebo">{props.user?.company.get('name')}</p>
             </div>
         </div>
 
         <TitleHeading
-            text = {post?.title ?? ''}
+            text = {props.post?.title ?? ''}
         />
         <ContentText
-            text = {post?.body ?? ''}
+            text = {props.post?.body ?? ''}
         />
 
         {props.commentsList != null && props.commentsList.length > 0
