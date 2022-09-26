@@ -6,6 +6,7 @@ import Navbar from '../../common/molecules/Navbar'
 import { useAlbumPhotoPageSingleAlbumViewModel } from '../viewModels/AlbumPhotoPageSingleAlbumViewModel'
 import ProfileHead from '../../common/molecules/ProfileHead'
 import { useAlbumPhotoPagePhotosViewModel } from '../viewModels/AlbumPhotoPagePhotosViewModel'
+import NotFoundPlaceholder from '../../common/molecules/NotFoundPlaceholder'
 
 const AlbumPhotoPage = (): JSX.Element => {
   React.useEffect(() => {
@@ -18,27 +19,29 @@ const AlbumPhotoPage = (): JSX.Element => {
   const { photos } = useAlbumPhotoPagePhotosViewModel(Number(params.get('albumId')))
 
   return (
-    <div className="block pb-10">
-        <Navbar
-            backArrowAvailable = {true}
-        />
-        <ProfileHead
-            username = {params.get('username') ?? ''}
-        />
-        <Card
-          element = {
-            album != null && photos != null && photos.length > 0
-              ? <AllPhotosContent
-                  album = {album}
-                  photos = {photos}
-              />
-              : <div></div>
-          }
-          clickable = { false }
-          cardSize = 'full'
-          extraStyling='mt-0'
-        />
-    </div>
+    params.get('username') != null && params.get('albumId') != null
+      ? <div className="block pb-10">
+          <Navbar
+              backArrowAvailable = {true}
+          />
+          <ProfileHead
+              username = {params.get('username') ?? ''}
+          />
+          <Card
+            element = {
+              album != null && photos != null && photos.length > 0
+                ? <AllPhotosContent
+                    album = {album}
+                    photos = {photos}
+                />
+                : <div></div>
+            }
+            clickable = { false }
+            cardSize = 'full'
+            extraStyling='mt-0'
+          />
+        </div>
+      : <NotFoundPlaceholder />
   )
 }
 
