@@ -4,14 +4,15 @@ import ProfileHead from '../../common/molecules/ProfileHead'
 import Card from '../../common/atoms/Card'
 import ContactDetailContent from '../../common/atoms/ContactDetailContent'
 import { useLocation } from 'react-router-dom'
-import { UserModel } from '../../../domain/models/User'
-import AlbumThumbnails from '../../common/atoms/AlbumThumbnails'
 import { useProfilePageAlbumsListViewModel } from '../viewModels/ProfilePageAlbumsListViewModel'
+import AlbumContents from '../../common/molecules/AlbumContents'
+import { useProfilePageUserInfoViewModel } from '../viewModels/ProfilePageUserInfoViewModel'
 
 const ProfilePage = (): JSX.Element => {
-  const chosenData = useLocation().state as {chosenUser: UserModel}
+  const params = new URLSearchParams(useLocation().search)
 
-  const { albums } = useProfilePageAlbumsListViewModel(chosenData.chosenUser.id)
+  const { albums } = useProfilePageAlbumsListViewModel(Number(params.get('userId')))
+  const { user } = useProfilePageUserInfoViewModel(Number(params.get('userId')))
 
   return (
         <div className="block pb-10">
@@ -19,13 +20,15 @@ const ProfilePage = (): JSX.Element => {
                 backArrowAvailable = {true}
             />
             <ProfileHead
-              username = {chosenData.chosenUser.username}
+              username = {user?.username ?? ''}
             />
             <Card
               element={
-                <ContactDetailContent
-                  user = {chosenData.chosenUser}
-                />
+                user != null
+                  ? <ContactDetailContent
+                      user = {user}
+                    />
+                  : <div></div>
               }
               clickable={false}
               cardSize = 'full'
@@ -34,9 +37,9 @@ const ProfilePage = (): JSX.Element => {
             <Card
               element = {
                 albums != null && albums.length > 0
-                  ? <AlbumThumbnails
+                  ? <AlbumContents
                       albums={albums}
-                      user={chosenData.chosenUser}
+                      username={user?.username ?? ''}
                     />
                   : <p>Loading...</p>
               }

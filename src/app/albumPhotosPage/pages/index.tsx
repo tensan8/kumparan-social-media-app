@@ -1,23 +1,21 @@
 import * as React from 'react'
 import { useLocation } from 'react-router-dom'
-import { AlbumModel } from '../../../domain/models/Album'
-import { PhotoModel } from '../../../domain/models/Photo'
-import { UserModel } from '../../../domain/models/User'
 import AllPhotosContent from '../../common/atoms/AllPhotosContent'
 import Card from '../../common/atoms/Card'
 import Navbar from '../../common/molecules/Navbar'
+import { useAlbumPhotoPageSingleAlbumViewModel } from '../viewModels/AlbumPhotoPageSingleAlbumViewModel'
 import ProfileHead from '../../common/molecules/ProfileHead'
+import { useProfilePagePhotoOnAlbumViewModel } from '../../profilePage/viewModels/ProfilePagePhotosOnAlbumViewModel'
 
 const AlbumPhotoPage = (): JSX.Element => {
   React.useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
 
-  const chosenData = useLocation().state as {
-    chosenUser: UserModel
-    chosenAlbum: AlbumModel
-    chosenPhotos: PhotoModel[]
-  }
+  const params = new URLSearchParams(useLocation().search)
+
+  const { album } = useAlbumPhotoPageSingleAlbumViewModel(Number(params.get('albumId')))
+  const { photos } = useProfilePagePhotoOnAlbumViewModel(Number(params.get('albumId')))
 
   return (
     <div className="block pb-10">
@@ -25,17 +23,20 @@ const AlbumPhotoPage = (): JSX.Element => {
             backArrowAvailable = {true}
         />
         <ProfileHead
-            username = {chosenData.chosenUser.username}
+            username = {params.get('username') ?? ''}
         />
         <Card
           element = {
-            <AllPhotosContent
-              album = {chosenData.chosenAlbum}
-              photos = {chosenData.chosenPhotos}
-            />
+            album != null && photos != null && photos.length > 0
+              ? <AllPhotosContent
+                  album = {album}
+                  photos = {photos}
+              />
+              : <div></div>
           }
           clickable = { false }
           cardSize = 'full'
+          extraStyling='mt-0'
         />
     </div>
   )

@@ -16,13 +16,8 @@ const PostCardList = (props: PostCardListProps): JSX.Element => {
   const navigate = useNavigate()
 
   const cardClickCallback = React.useCallback(
-    (user: UserModel, post: PostModel) => () => {
-      navigate('/post-detail', {
-        state: {
-          chosenUser: user,
-          chosenPost: post
-        }
-      })
+    (userId: number, postId: number) => () => {
+      navigate(`/post-detail?userId=${userId}&postId=${postId}`)
     }, [])
 
   const userLookup = React.useCallback((postUserId: number): any => {
@@ -66,7 +61,7 @@ const PostCardList = (props: PostCardListProps): JSX.Element => {
                         />
                     }
                     clickable={true}
-                    onCardClick={cardClickCallback(user, post)}
+                    onCardClick={cardClickCallback(user.id, post.id)}
                     key={post.id}
                 />
               )
