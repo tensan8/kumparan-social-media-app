@@ -1,5 +1,5 @@
-import { UserModel } from '../models/user'
-import { Result } from '../vo/result'
+import { UserModel } from '../Models/user'
+import { Result } from '../Vo/result'
 import { BaseRepository } from './baseRepository'
 
 export type UserResult = Result<UserModel[]>

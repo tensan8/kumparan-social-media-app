@@ -1,5 +1,5 @@
-import { PhotoModel } from '../../domain/models/photo'
-import { PhotoDTO } from '../sources/dtos/photoDTO'
+import { PhotoModel } from '../../Domain/Models/photo'
+import { PhotoDTO } from '../Sources/Dtos/photoDTO'
 
 export const mapPhotoModel = (photoDTO: PhotoDTO): PhotoModel => {
   return (new PhotoModel({

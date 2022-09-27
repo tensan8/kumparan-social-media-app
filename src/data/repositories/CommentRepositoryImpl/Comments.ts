@@ -1,9 +1,9 @@
-import { mapCommentModel } from '../../mappers/commentMapper'
-import { CommentDTO } from '../../sources/dtos/commentDTO'
-import { CommentModel } from '../../../domain/models/comment'
-import * as CommentRepositories from '../../../domain/repositories/commentRepositories'
-import * as CommentQueries from '../../sources/commentDataSource'
-import { Result } from '../../../domain/vo/result'
+import { CommentModel } from '../../../Domain/Models/comment'
+import * as CommentRepositories from '../../../Domain/Repositories/commentRepositories'
+import { Result } from '../../../Domain/Vo/result'
+import { mapCommentModel } from '../../Mappers/commentMapper'
+import * as CommentQueries from '../../Sources/CommentDataSource'
+import { CommentDTO } from '../../Sources/Dtos/commentDTO'
 
 export const GetAllComments = (): CommentRepositories.AllComments => {
   const result = new Result<CommentModel[]>()

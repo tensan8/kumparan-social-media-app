@@ -1,5 +1,5 @@
-import { UserModel } from '../../domain/models/user'
-import { UserDTO } from '../sources/dtos/userDTO'
+import { UserModel } from '../../Domain/Models/user'
+import { UserDTO } from '../Sources/Dtos/userDTO'
 
 export const mapUserModel = (userDTO: UserDTO): UserModel => {
   return (new UserModel({

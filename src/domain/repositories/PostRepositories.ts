@@ -1,6 +1,6 @@
 import { BaseRepository } from './baseRepository'
-import { PostModel } from '../models/post'
-import { Result } from '../vo/result'
+import { PostModel } from '../Models/post'
+import { Result } from '../Vo/result'
 
 export type PostResult = Result<PostModel[]>
 

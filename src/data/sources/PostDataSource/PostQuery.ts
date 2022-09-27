@@ -1,6 +1,6 @@
-import { PostDTO } from '../dtos/postDTO'
+import { PostDTO } from '../Dtos/postDTO'
 import useSWR, { SWRResponse } from 'swr'
-import { fetcher } from '../../utils/fetcher'
+import { fetcher } from '../../Utils/fetcher'
 
 export const AllPostQuery = (): SWRResponse<PostDTO[], any> => {
   return useSWR<PostDTO[], any>('https://jsonplaceholder.typicode.com/posts', fetcher)

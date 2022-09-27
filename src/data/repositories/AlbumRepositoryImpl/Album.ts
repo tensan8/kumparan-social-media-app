@@ -1,9 +1,9 @@
-import { mapAlbumModel } from '../../mappers/albumMapper'
-import { AlbumDTO } from '../../sources/dtos/albumDTO'
-import { AlbumModel } from '../../../domain/models/album'
-import { Result } from '../../../domain/vo/result'
-import * as AlbumRepositories from '../../../domain/repositories/albumRepositories'
-import * as AlbumQueries from '../../sources/albumDataSource'
+import { AlbumModel } from '../../../Domain/Models/album'
+import * as AlbumRepositories from '../../../Domain/Repositories/albumRepositories'
+import { Result } from '../../../Domain/Vo/result'
+import { mapAlbumModel } from '../../Mappers/albumMapper'
+import * as AlbumQueries from '../../Sources/AlbumDataSource'
+import { AlbumDTO } from '../../Sources/Dtos/albumDTO'
 
 export const GetAllAlbums = (userId: number): AlbumRepositories.AllAlbums => {
   const result = new Result<AlbumModel[]>()

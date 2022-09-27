@@ -1,6 +1,6 @@
 import useSWR, { SWRResponse } from 'swr'
-import { fetcher } from '../../utils/fetcher'
-import { UserDTO } from '../dtos/userDTO'
+import { fetcher } from '../../Utils/fetcher'
+import { UserDTO } from '../Dtos/userDTO'
 
 export const GetAllUsersQuery = (): SWRResponse<UserDTO[], any> => {
   return useSWR<UserDTO[], any>('https://jsonplaceholder.typicode.com/users', fetcher)

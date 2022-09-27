@@ -1,8 +1,8 @@
-import { mapUserModel } from '../../mappers/userMapper'
-import * as UserRepositories from '../../../domain/repositories/userRepositories'
-import * as UserDataSources from '../../sources/userDataSource'
-import { Result } from '../../../domain/vo/result'
-import { UserModel } from '../../../domain/models/user'
+import { mapUserModel } from '../../Mappers/userMapper'
+import * as UserRepositories from '../../../Domain/Repositories/userRepositories'
+import * as UserDataSources from '../../Sources/UserDataSource'
+import { Result } from '../../../Domain/Vo/result'
+import { UserModel } from '../../../Domain/Models/user'
 
 export const GetSingleUser = (userId: number): UserRepositories.SingleUser => {
   const result = new Result<UserModel>()

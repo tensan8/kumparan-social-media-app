@@ -1,9 +1,9 @@
-import { PostDTO } from '../../sources/dtos/postDTO'
-import { mapPostModel } from '../../mappers/postMapper'
-import { PostModel } from '../../../domain/models/post'
-import * as PostRepository from '../../../domain/repositories/postRepositories'
-import { Result } from '../../../domain/vo/result'
-import * as PostDataSource from '../../sources/postDataSource'
+import { PostDTO } from '../../Sources/Dtos/postDTO'
+import { mapPostModel } from '../../Mappers/postMapper'
+import { PostModel } from '../../../Domain/Models/post'
+import * as PostRepository from '../../../Domain/Repositories/postRepositories'
+import { Result } from '../../../Domain/Vo/result'
+import * as PostDataSource from '../../Sources/PostDataSource'
 
 export const GetAllPosts = (): PostRepository.AllPosts => {
   const result = new Result<PostModel[]>()

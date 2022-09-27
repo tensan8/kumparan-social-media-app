@@ -1,6 +1,6 @@
 import { BaseRepository } from './baseRepository'
-import { Result } from '../vo/result'
-import { PhotoModel } from '../models/photo'
+import { Result } from '../Vo/result'
+import { PhotoModel } from '../Models/photo'
 
 export type PhotosResult = Result<PhotoModel[]>
 

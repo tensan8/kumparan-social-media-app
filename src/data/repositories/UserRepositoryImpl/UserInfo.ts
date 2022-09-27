@@ -1,9 +1,9 @@
-import { mapUserModel } from '../../mappers/userMapper'
-import { UserDTO } from '../../sources/dtos/userDTO'
-import { UserModel } from '../../../domain/models/user'
-import * as UserRepositories from '../../../domain/repositories/userRepositories'
-import * as UserDataSources from '../../sources/userDataSource'
-import { Result } from '../../../domain/vo/result'
+import { mapUserModel } from '../../Mappers/userMapper'
+import { UserDTO } from '../../Sources/Dtos/userDTO'
+import { UserModel } from '../../../Domain/Models/user'
+import * as UserRepositories from '../../../Domain/Repositories/userRepositories'
+import * as UserDataSources from '../../Sources/UserDataSource'
+import { Result } from '../../../Domain/Vo/result'
 
 export const GetAllUsers = (): UserRepositories.AllUsers => {
   const result = new Result<UserModel[]>()
