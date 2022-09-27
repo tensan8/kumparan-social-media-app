@@ -1,4 +1,4 @@
-import { GetSingleUser } from '../../../Data/repositories/userRepositoryImpl/singleUser'
+import { GetSingleUser } from '../../../data/repositories/userRepositoryImpl/singleUser'
 import { UserModel } from '../../../Domain/Models/user'
 
 interface ProfilePageUserInfoViewModel {
