@@ -1,10 +1,10 @@
 import * as React from 'react'
 import { RouteObject } from 'react-router-dom'
 import loadable from '@loadable/component'
-import PostDetail from './app/postDetail/pages'
-import ProfilePage from './app/profilePage/pages'
-import AlbumPhotoPage from './app/albumPhotosPage/pages'
-import NotFoundPlaceholder from './app/common/molecules/notFoundPlaceholder'
+import PostDetail from './App/postDetail/pages'
+import ProfilePage from './App/profilePage/pages'
+import AlbumPhotoPage from './App/albumPhotosPage/pages'
+import NotFoundPlaceholder from './App/common/molecules/notFoundPlaceholder'
 
 interface ExtendedRouteObject extends RouteObject {
   validation?: boolean
