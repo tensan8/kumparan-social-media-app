@@ -1,4 +1,4 @@
-import { GetAllComments } from '../../../data/repositories/commentRepositoryImpl/comments'
+import { GetAllComments } from '../../../Data/Repositories/commentRepositoryImpl/comments'
 import { CommentModel } from '../../../Domain/Models/comment'
 
 interface HomepageCommentViewModel {

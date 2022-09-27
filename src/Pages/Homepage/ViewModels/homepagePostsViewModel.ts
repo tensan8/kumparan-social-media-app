@@ -1,4 +1,4 @@
-import { GetAllPosts } from '../../../data/repositories/postRepositoryImpl/post'
+import { GetAllPosts } from '../../../Data/Repositories/postRepositoryImpl/posts'
 import { PostModel } from '../../../Domain/Models/post'
 
 interface HomepagePostsViewModel {
