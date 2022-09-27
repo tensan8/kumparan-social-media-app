@@ -1,5 +1,5 @@
-import { GetAllPosts } from '../../../data/repositories/PostRepositoryImpl/Post'
-import { PostModel } from '../../../domain/models/Post'
+import { GetAllPosts } from '../../../data/repositories/postRepositoryImpl/post'
+import { PostModel } from '../../../domain/models/post'
 
 interface HomepagePostsViewModel {
   allPosts: PostModel[] | null

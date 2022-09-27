@@ -1,8 +1,8 @@
 import * as React from 'react'
 import { useNavigate } from 'react-router-dom'
-import { AlbumModel } from '../../../domain/models/Album'
-import AlbumThumbnails from '../atoms/AlbumThumbnails'
-import TitleHeading from '../atoms/TitleHeading'
+import { AlbumModel } from '../../../domain/models/album'
+import AlbumThumbnails from '../atoms/albumThumbnails'
+import TitleHeading from '../atoms/titleHeading'
 
 interface AlbumContentsProps {
   albums: AlbumModel[]

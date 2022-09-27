@@ -1,1 +1,1 @@
-export * from './AlbumQuery'
+export * from './albumQuery'

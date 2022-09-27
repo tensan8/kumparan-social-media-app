@@ -1,8 +1,8 @@
 import * as React from 'react'
 import CommentIcon from '../../../assets/comment.png'
-import ContentText from './ContentText'
-import TitleHeading from './TitleHeading'
-import VerticalRedBar from './VerticalRedBar'
+import ContentText from './contentText'
+import TitleHeading from './titleHeading'
+import VerticalRedBar from './verticalRedBar'
 
 interface SummaryCardContentProps {
   title: string

@@ -1,13 +1,13 @@
-import Navbar from '../../common/molecules/Navbar'
+import Navbar from '../../common/molecules/navbar'
 import * as React from 'react'
-import ProfileHead from '../../common/molecules/ProfileHead'
-import Card from '../../common/atoms/Card'
-import ContactDetailContent from '../../common/atoms/ContactDetailContent'
+import ProfileHead from '../../common/molecules/profileHead'
+import Card from '../../common/atoms/card'
+import ContactDetailContent from '../../common/atoms/contactDetailContent'
 import { useLocation } from 'react-router-dom'
-import { useProfilePageAlbumsListViewModel } from '../viewModels/ProfilePageAlbumsListViewModel'
-import AlbumContents from '../../common/molecules/AlbumContents'
-import { useProfilePageUserInfoViewModel } from '../viewModels/ProfilePageUserInfoViewModel'
-import NotFoundPlaceholder from '../../common/molecules/NotFoundPlaceholder'
+import { useProfilePageAlbumsListViewModel } from '../viewModels/profilePageAlbumsListViewModel'
+import AlbumContents from '../../common/molecules/albumContents'
+import { useProfilePageUserInfoViewModel } from '../viewModels/profilePageUserInfoViewModel'
+import NotFoundPlaceholder from '../../common/molecules/notFoundPlaceholder'
 
 const ProfilePage = (): JSX.Element => {
   const params = new URLSearchParams(useLocation().search)

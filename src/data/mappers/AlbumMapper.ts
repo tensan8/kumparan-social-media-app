@@ -1,5 +1,5 @@
-import { AlbumModel } from './../../domain/models/Album'
-import { AlbumDTO } from './../sources/dtos/AlbumDTO'
+import { AlbumModel } from '../../domain/models/album'
+import { AlbumDTO } from '../sources/dtos/albumDTO'
 
 export const mapAlbumModel = (albumDTO: AlbumDTO): AlbumModel => {
   return (new AlbumModel({

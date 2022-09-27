@@ -1,5 +1,5 @@
-import { PhotoModel } from './../../../domain/models/Photo'
-import { AlbumModel } from './../../../domain/models/Album'
+import { PhotoModel } from '../../../domain/models/photo'
+import { AlbumModel } from '../../../domain/models/album'
 
 export interface BaseAlbumPhotosList {
   album: AlbumModel

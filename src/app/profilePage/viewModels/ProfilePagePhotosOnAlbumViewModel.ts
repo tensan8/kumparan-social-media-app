@@ -1,5 +1,5 @@
-import { GetAllPhotosOnAlbum } from './../../../data/repositories/PhotoRepositoryImpl/Photos'
-import { PhotoModel } from './../../../domain/models/Photo'
+import { GetAllPhotosOnAlbum } from '../../../data/repositories/photoRepositoryImpl/photos'
+import { PhotoModel } from '../../../domain/models/photo'
 
 interface ProfilePagePhotosOnAlbumViewModel {
   photos: PhotoModel[] | null

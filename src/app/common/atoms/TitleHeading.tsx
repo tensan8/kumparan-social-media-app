@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { BaseContent } from '../utils/BaseContent'
+import { BaseContent } from '../utils/baseContent'
 
 const titleHeadingMap = {
   big: 'text-xl mb-1',

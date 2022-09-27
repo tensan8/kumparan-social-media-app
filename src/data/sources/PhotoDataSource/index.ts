@@ -1,1 +1,1 @@
-export * from './AllPhotosOnAlbumQuery'
+export * from './allPhotosOnAlbumQuery'

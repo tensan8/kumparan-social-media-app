@@ -1,12 +1,12 @@
 import * as React from 'react'
 import { useLocation } from 'react-router-dom'
-import AllPhotosContent from '../../common/atoms/AllPhotosContent'
-import Card from '../../common/atoms/Card'
-import Navbar from '../../common/molecules/Navbar'
-import { useAlbumPhotoPageSingleAlbumViewModel } from '../viewModels/AlbumPhotoPageSingleAlbumViewModel'
-import ProfileHead from '../../common/molecules/ProfileHead'
-import { useAlbumPhotoPagePhotosViewModel } from '../viewModels/AlbumPhotoPagePhotosViewModel'
-import NotFoundPlaceholder from '../../common/molecules/NotFoundPlaceholder'
+import AllPhotosContent from '../../common/atoms/allPhotosContent'
+import Card from '../../common/atoms/card'
+import Navbar from '../../common/molecules/navbar'
+import { useAlbumPhotoPageSingleAlbumViewModel } from '../viewModels/albumPhotoPageSingleAlbumViewModel'
+import ProfileHead from '../../common/molecules/profileHead'
+import { useAlbumPhotoPagePhotosViewModel } from '../viewModels/albumPhotoPagePhotosViewModel'
+import NotFoundPlaceholder from '../../common/molecules/notFoundPlaceholder'
 
 const AlbumPhotoPage = (): JSX.Element => {
   React.useEffect(() => {

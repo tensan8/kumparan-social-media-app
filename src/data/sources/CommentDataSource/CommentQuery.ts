@@ -1,5 +1,5 @@
 import useSWR, { SWRResponse } from 'swr'
-import { CommentDTO } from '../dtos/CommentDTO'
+import { CommentDTO } from '../dtos/commentDTO'
 import { fetcher } from '../../utils/fetcher'
 
 export const AllCommentsQuery = (): SWRResponse<CommentDTO[], any> => {

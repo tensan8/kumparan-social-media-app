@@ -1,5 +1,5 @@
 import * as React from 'react'
-import TitleHeading from '../atoms/TitleHeading'
+import TitleHeading from '../atoms/titleHeading'
 
 interface TwoColorTitleHeadingProps {
   firstText: string

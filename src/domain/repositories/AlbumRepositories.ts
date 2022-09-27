@@ -1,6 +1,6 @@
-import { BaseRepository } from './BaseRepository'
-import { AlbumModel } from '../models/Album'
-import { Result } from './../vo/Result'
+import { BaseRepository } from './baseRepository'
+import { AlbumModel } from '../models/album'
+import { Result } from '../vo/result'
 
 export type AlbumResults = Result<AlbumModel[]>
 

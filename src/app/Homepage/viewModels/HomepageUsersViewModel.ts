@@ -1,5 +1,5 @@
-import { GetAllUsers } from './../../../data/repositories/UserRepositoryImpl/UserInfo'
-import { UserModel } from './../../../domain/models/User'
+import { GetAllUsers } from '../../../data/repositories/userRepositoryImpl/userInfo'
+import { UserModel } from '../../../domain/models/user'
 
 interface HomepageUsersViewModel {
   allUsers: UserModel[] | null
