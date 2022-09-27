@@ -1,2 +1,2 @@
 export * from './Comments'
-export * from './postComments'
+export * from './PostComments'
