@@ -1,2 +1,2 @@
-export * from './album'
+export * from './Album'
 export * from './singleAlbum'
