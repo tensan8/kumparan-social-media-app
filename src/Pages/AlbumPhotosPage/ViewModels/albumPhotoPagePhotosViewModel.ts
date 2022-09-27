@@ -1,5 +1,5 @@
 import { PhotoModel } from '../../../Domain/Models/photo'
-import { GetAllPhotosOnAlbum } from '../../../Data/Repositories/PhotoRepositoryImpl/Photos'
+import { GetAllPhotosOnAlbum } from '../../../Data/Repositories/photoRepositoryImpl/photos'
 
 interface AlbumPhotoPagePhotosViewModel {
   photos: PhotoModel[] | null

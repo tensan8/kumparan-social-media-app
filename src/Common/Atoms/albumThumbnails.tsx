@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { AlbumModel } from '../../Domain/Models/album'
-import { useProfilePagePhotoOnAlbumViewModel } from '../../Pages/ProfilePage/ViewModels/profilePagePhotosOnAlbumViewModel'
+import { useProfilePagePhotoOnAlbumViewModel } from '../../Pages/ProfilePage/viewModels/profilePagePhotosOnAlbumViewModel'
 import ThumbnailWithTitle from './thumbnailWithTitle'
 
 interface AlbumThumbnailsProps {

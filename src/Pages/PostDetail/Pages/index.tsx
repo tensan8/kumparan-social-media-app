@@ -4,9 +4,9 @@ import Card from '../../../Common/Atoms/card'
 import DetailCardContent from '../../../Common/Atoms/detailCardContent'
 import Navbar from '../../../Common/Molecules/navbar'
 import NotFoundPlaceholder from '../../../Common/Molecules/notFoundPlaceholder'
-import { useDetailPageCommentsViewModel } from '../ViewModels/detailPageCommentsViewModel'
-import { useDetailPagePostViewModel } from '../ViewModels/detailPagePostViewModel'
-import { useDetailPageUserInfoViewModel } from '../ViewModels/detailPageUserInfoViewModel'
+import { useDetailPageCommentsViewModel } from '../viewModels/detailPageCommentsViewModel'
+import { useDetailPagePostViewModel } from '../viewModels/detailPagePostViewModel'
+import { useDetailPageUserInfoViewModel } from '../viewModels/detailPageUserInfoViewModel'
 
 const PostDetail = (): JSX.Element => {
   const params = new URLSearchParams(useLocation().search)

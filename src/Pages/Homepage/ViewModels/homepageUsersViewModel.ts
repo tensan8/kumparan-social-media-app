@@ -1,4 +1,4 @@
-import { GetAllUsers } from '../../../Data/Repositories/UserRepositoryImpl/userInfo'
+import { GetAllUsers } from '../../../Data/Repositories/userRepositoryImpl/userInfo'
 import { UserModel } from '../../../Domain/Models/user'
 
 interface HomepageUsersViewModel {
