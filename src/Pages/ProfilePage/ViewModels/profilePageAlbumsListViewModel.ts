@@ -1,4 +1,4 @@
-import { GetAllAlbums } from '../../../Data/Repositories/albumRepositoryImpl/album'
+import { GetAllAlbums } from '../../../Data/repositories/albumRepositoryImpl/album'
 import { AlbumModel } from '../../../Domain/Models/album'
 
 interface ProfilePageAlbumsListViewModel {

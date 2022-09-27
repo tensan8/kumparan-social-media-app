@@ -1,4 +1,4 @@
-import { GetPostComments } from '../../../Data/Repositories/commentRepositoryImpl/PostComments'
+import { GetPostComments } from '../../../Data/repositories/commentRepositoryImpl/postComments'
 import { CommentModel } from '../../../Domain/Models/comment'
 
 interface DetailPageCommentsViewModel {
