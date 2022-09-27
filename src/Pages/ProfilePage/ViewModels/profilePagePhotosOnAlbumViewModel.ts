@@ -1,4 +1,4 @@
-import { GetAllPhotosOnAlbum } from '../../../Data/Repositories/PhotoRepositoryImpl/photos'
+import { GetAllPhotosOnAlbum } from '../../../Data/Repositories/PhotoRepositoryImpl/Photos'
 import { PhotoModel } from '../../../Domain/Models/photo'
 
 interface ProfilePagePhotosOnAlbumViewModel {

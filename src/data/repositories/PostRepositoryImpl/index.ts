@@ -1,2 +1,2 @@
-export * from './post'
-export * from './singlePost'
+export * from './Post'
+export * from './SinglePost'
