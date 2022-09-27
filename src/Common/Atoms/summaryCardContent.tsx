@@ -1,5 +1,5 @@
 import * as React from 'react'
-import CommentIcon from '../../Assets/comment.png'
+import CommentIcon from '../../assets/comment.png'
 import ContentText from './contentText'
 import TitleHeading from './titleHeading'
 import VerticalRedBar from './verticalRedBar'

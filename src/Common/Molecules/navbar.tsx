@@ -1,6 +1,6 @@
 import * as React from 'react'
-import logo from '../../Assets/logo.png'
-import backArrow from '../../Assets/back.png'
+import logo from '../../assets/logo.png'
+import backArrow from '../../assets/back.png'
 import { useNavigate } from 'react-router-dom'
 
 const backArrowStyling = 'absolute w-6 h-6 left-10 top-6' as const

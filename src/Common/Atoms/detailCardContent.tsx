@@ -1,6 +1,6 @@
 import * as React from 'react'
 import VerticalRedBar from './verticalRedBar'
-import UserIcon from '../../Assets/user.png'
+import UserIcon from '../../assets/user.png'
 import TitleHeading from './titleHeading'
 import ContentText from './contentText'
 import { useNavigate } from 'react-router-dom'

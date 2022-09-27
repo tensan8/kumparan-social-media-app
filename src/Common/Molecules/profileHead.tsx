@@ -1,5 +1,5 @@
 import * as React from 'react'
-import UserIcon from '../../Assets/user.png'
+import UserIcon from '../../assets/user.png'
 
 interface ProfileHeadProps {
   username: string
