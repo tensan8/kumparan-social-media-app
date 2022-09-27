@@ -6,8 +6,8 @@ import AlbumContents from '../../../Common/Molecules/albumContents'
 import Navbar from '../../../Common/Molecules/navbar'
 import NotFoundPlaceholder from '../../../Common/Molecules/notFoundPlaceholder'
 import ProfileHead from '../../../Common/Molecules/profileHead'
-import { useProfilePageAlbumsListViewModel } from '../viewModels/profilePageAlbumsListViewModel'
-import { useProfilePageUserInfoViewModel } from '../viewModels/profilePageUserInfoViewModel'
+import { useProfilePageAlbumsListViewModel } from '../ViewModels/profilePageAlbumsListViewModel'
+import { useProfilePageUserInfoViewModel } from '../ViewModels/profilePageUserInfoViewModel'
 
 const ProfilePage = (): JSX.Element => {
   const params = new URLSearchParams(useLocation().search)

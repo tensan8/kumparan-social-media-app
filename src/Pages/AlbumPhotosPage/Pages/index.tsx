@@ -3,9 +3,9 @@ import { useLocation } from 'react-router-dom'
 import AllPhotosContent from '../../../Common/Atoms/allPhotosContent'
 import Card from '../../../Common/Atoms/card'
 import Navbar from '../../../Common/Molecules/navbar'
-import { useAlbumPhotoPageSingleAlbumViewModel } from '../viewModels/albumPhotoPageSingleAlbumViewModel'
+import { useAlbumPhotoPageSingleAlbumViewModel } from '../ViewModels/albumPhotoPageSingleAlbumViewModel'
 import ProfileHead from '../../../Common/Molecules/profileHead'
-import { useAlbumPhotoPagePhotosViewModel } from '../viewModels/albumPhotoPagePhotosViewModel'
+import { useAlbumPhotoPagePhotosViewModel } from '../ViewModels/albumPhotoPagePhotosViewModel'
 import NotFoundPlaceholder from '../../../Common/Molecules/notFoundPlaceholder'
 
 const AlbumPhotoPage = (): JSX.Element => {
