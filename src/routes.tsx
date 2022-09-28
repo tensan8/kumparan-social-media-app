@@ -5,6 +5,7 @@ import PostDetail from './app/postDetail/pages'
 import ProfilePage from './app/profilePage/pages'
 import AlbumPhotoPage from './app/albumPhotosPage/pages'
 import NotFoundPlaceholder from './app/common/molecules/notFoundPlaceholder'
+import EnlargedPhotoPage from './app/enlargedPhotoPage/pages/indext'
 
 interface ExtendedRouteObject extends RouteObject {
   validation?: boolean
@@ -19,7 +20,8 @@ export enum RoutePath {
   HOMEPAGE = '/homepage',
   POST_DETAIL = '/post-detail',
   PROFILE = '/profile',
-  ALBUM_PHOTOS = '/album-photos'
+  ALBUM_PHOTOS = '/album-photos',
+  ENLARGED_PHOTO = '/enlarged-photo'
 }
 
 const routeObject: ExtendedRouteObject[] = [
@@ -42,6 +44,10 @@ const routeObject: ExtendedRouteObject[] = [
   {
     path: RoutePath.ALBUM_PHOTOS,
     element: <AlbumPhotoPage />
+  },
+  {
+    path: RoutePath.ENLARGED_PHOTO,
+    element: <EnlargedPhotoPage />
   },
   {
     path: '*',
