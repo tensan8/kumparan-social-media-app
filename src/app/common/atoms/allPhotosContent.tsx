@@ -13,7 +13,7 @@ const AllPhotosContent = (props: AllPhotosContentProps): JSX.Element => {
 
   const photoClickCallback = React.useCallback(
     (photoId: number) => () => {
-      navigate(`/enlarged-photo?username=${params.get('username') ?? ''}&photoId=${photoId}`)
+      navigate(`/enlarged-photo?username=${params.get('username') ?? ''}&albumName=${props.album.title}&photoId=${photoId}`)
     }, [])
 
   return (
