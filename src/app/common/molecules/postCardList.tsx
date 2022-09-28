@@ -1,9 +1,9 @@
-import { PostModel } from '../../../domain/models/Post'
+import { PostModel } from '../../../domain/models/post'
 import * as React from 'react'
-import Card from '../atoms/Card'
-import SummaryCardContent from '../atoms/SummaryCardContent'
-import { UserModel } from '../../../domain/models/User'
-import { CommentModel } from '../../../domain/models/Comment'
+import Card from '../atoms/card'
+import SummaryCardContent from '../atoms/summaryCardContent'
+import { UserModel } from '../../../domain/models/user'
+import { CommentModel } from '../../../domain/models/comment'
 import { useNavigate } from 'react-router-dom'
 
 interface PostCardListProps {
@@ -16,13 +16,8 @@ const PostCardList = (props: PostCardListProps): JSX.Element => {
   const navigate = useNavigate()
 
   const cardClickCallback = React.useCallback(
-    (user: UserModel, post: PostModel) => () => {
-      navigate('/post-detail', {
-        state: {
-          chosenUser: user,
-          chosenPost: post
-        }
-      })
+    (userId: number, postId: number) => () => {
+      navigate(`/post-detail?userId=${userId}&postId=${postId}`)
     }, [])
 
   const userLookup = React.useCallback((postUserId: number): any => {
@@ -66,7 +61,7 @@ const PostCardList = (props: PostCardListProps): JSX.Element => {
                         />
                     }
                     clickable={true}
-                    onCardClick={cardClickCallback(user, post)}
+                    onCardClick={cardClickCallback(user.id, post.id)}
                     key={post.id}
                 />
               )

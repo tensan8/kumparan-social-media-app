@@ -1,47 +1,56 @@
-import Navbar from '../../common/molecules/Navbar'
+import Navbar from '../../common/molecules/navbar'
 import * as React from 'react'
-import ProfileHead from '../../common/molecules/ProfileHead'
-import Card from '../../common/atoms/Card'
-import ContactDetailContent from '../../common/atoms/ContactDetailContent'
+import ProfileHead from '../../common/molecules/profileHead'
+import Card from '../../common/atoms/card'
+import ContactDetailContent from '../../common/atoms/contactDetailContent'
 import { useLocation } from 'react-router-dom'
-import { UserModel } from '../../../domain/models/User'
-import AlbumThumbnails from '../../common/atoms/AlbumThumbnails'
-import { useProfilePageAlbumsListViewModel } from '../viewModels/ProfilePageAlbumsListViewModel'
+import { useProfilePageAlbumsListViewModel } from '../viewModels/profilePageAlbumsListViewModel'
+import AlbumContents from '../../common/molecules/albumContents'
+import { useProfilePageUserInfoViewModel } from '../viewModels/profilePageUserInfoViewModel'
+import NotFoundPlaceholder from '../../common/molecules/notFoundPlaceholder'
 
 const ProfilePage = (): JSX.Element => {
-  const chosenData = useLocation().state as {chosenUser: UserModel}
+  const params = new URLSearchParams(useLocation().search)
 
-  const { albums } = useProfilePageAlbumsListViewModel(chosenData.chosenUser.id)
+  const { albums } = useProfilePageAlbumsListViewModel(Number(params.get('userId')))
+  const { user } = useProfilePageUserInfoViewModel(Number(params.get('userId')))
 
   return (
-        <div className="block pb-10">
-            <Navbar
-                backArrowAvailable = {true}
-            />
-            <ProfileHead username = {chosenData.chosenUser.username}/>
-            <Card
-              element={
-                <ContactDetailContent
-                  user = {chosenData.chosenUser}
-                />
-              }
-              clickable={false}
-              cardSize = 'full'
-              extraStyling='mt-0'
-            />
-            <Card
-              element = {
-                albums != null && albums.length > 0
-                  ? <AlbumThumbnails
-                      albums={albums}
-                    />
-                  : <p>Loading...</p>
-              }
-              clickable = {false}
-              cardSize = 'full'
-              extraStyling = 'pb-12'
-            />
+    params.get('userId') != null
+      ? <div className="block pb-10">
+          <Navbar
+              backArrowAvailable = {true}
+          />
+          <ProfileHead
+            username = {user?.username ?? ''}
+          />
+          <Card
+            element={
+              user != null
+                ? <ContactDetailContent
+                    user = {user}
+                  />
+                : <div></div>
+            }
+            clickable={false}
+            cardSize = 'full'
+            extraStyling='mt-0'
+          />
+          <Card
+            element = {
+              albums != null && albums.length > 0
+                ? <AlbumContents
+                    albums={albums}
+                    username={user?.username ?? ''}
+                  />
+                : <p>Loading...</p>
+            }
+            clickable = {false}
+            cardSize = 'full'
+            extraStyling = 'pb-12'
+          />
         </div>
+      : <NotFoundPlaceholder />
   )
 }
 
