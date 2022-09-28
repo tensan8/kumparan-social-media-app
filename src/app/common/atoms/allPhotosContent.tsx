@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
 import TwoColorTitleHeading from '../molecules/twoColorTitleHeading'
 import { BaseAlbumPhotosList } from '../utils/baseAlbumPhotosList'
 import ThumbnailWithTitle from './thumbnailWithTitle'
@@ -6,6 +7,15 @@ import ThumbnailWithTitle from './thumbnailWithTitle'
 interface AllPhotosContentProps extends BaseAlbumPhotosList { }
 
 const AllPhotosContent = (props: AllPhotosContentProps): JSX.Element => {
+  const navigate = useNavigate()
+
+  const params = new URLSearchParams(useLocation().search)
+
+  const photoClickCallback = React.useCallback(
+    (photoId: number) => () => {
+      navigate(`/enlarged-photo?username=${params.get('username') ?? ''}&photoId=${photoId}`)
+    }, [])
+
   return (
     <div className="block w-full">
         <TwoColorTitleHeading
@@ -16,7 +26,11 @@ const AllPhotosContent = (props: AllPhotosContentProps): JSX.Element => {
         <div className="grid grid-cols-5 gap-4">
             {props.photos.map((photo, index) => {
               return (
-                <div className={index % 3 === 0 ? 'row-span-2' : ''} key = {index}>
+                <div
+                  className={index % 3 === 0 ? 'row-span-2' : ''}
+                  key = {index}
+                  onClick = {photoClickCallback(photo.id)}
+                >
                     <ThumbnailWithTitle
                         thumbnailUrl = {photo.thumbnailUrl}
                         text = {photo.title}
