@@ -1,11 +1,11 @@
 import * as React from 'react'
 import { RouteObject } from 'react-router-dom'
 import loadable from '@loadable/component'
-import PostDetail from './app/postDetail/pages'
-import ProfilePage from './app/profilePage/pages'
-import AlbumPhotoPage from './app/albumPhotosPage/pages'
-import NotFoundPlaceholder from './app/common/molecules/notFoundPlaceholder'
-import EnlargedPhotoPage from './app/enlargedPhotoPage/pages/indext'
+import PostDetail from './postDetail/pages'
+import ProfilePage from './profilePage/pages'
+import AlbumPhotoPage from './albumPhotosPage/pages'
+import NotFoundPlaceholder from './common/molecules/notFoundPlaceholder'
+import EnlargedPhotoPage from './enlargedPhotoPage/pages/indext'
 
 interface ExtendedRouteObject extends RouteObject {
   validation?: boolean
@@ -14,7 +14,7 @@ interface ExtendedRouteObject extends RouteObject {
   children?: ExtendedRouteObject[]
 }
 
-const Homepage = loadable(async () => await import('./app/homepage/pages'))
+const Homepage = loadable(async () => await import('./homepage/pages'))
 
 export enum RoutePath {
   HOMEPAGE = '/homepage',
