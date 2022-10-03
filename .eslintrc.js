@@ -18,5 +18,6 @@ module.exports = {
     'react'
   ],
   rules: {
-  }
+  },
+  ignorePatterns: ['declaration.d.ts']
 }

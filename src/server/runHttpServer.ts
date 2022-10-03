@@ -1,7 +1,7 @@
 import type { Express } from 'express'
 
 const runHttpServer = (app: Express): void => {
-  const PORT = Number(process.env.PORT)
+  const PORT = Number(process.env.PORT ?? 3000)
   const server = app.listen(PORT, () => {
     console.info(`App server is listening to PORT: ${PORT}`)
   })

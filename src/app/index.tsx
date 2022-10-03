@@ -1,13 +1,14 @@
+import './index.css'
+import App from '../app/App'
 import * as React from 'react'
-import { useRoutes } from 'react-router-dom'
-import getRoutes from './routes'
+import * as ReactDOM from 'react-dom/client'
+import { BrowserRouter } from 'react-router-dom'
 
-const App = (): JSX.Element => {
-  const routes = useRoutes(getRoutes())
-
-  return (
-    <>{routes}</>
-  )
-}
-
-export default App
+ReactDOM.hydrateRoot(
+  document.getElementById('root') as HTMLElement,
+  <React.StrictMode>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </React.StrictMode>
+)

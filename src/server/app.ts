@@ -12,14 +12,14 @@ const app = express()
 app.disable('x-powered-by')
 app.use(compression())
 
-app.use(express.static(path.join(process.cwd(), 'dist'), { index: false }))
+app.use(express.static(path.join(__dirname, '../../dist'), { index: false }))
 app.use(express.json())
-app.use(express.urlencoded)
+app.use(express.urlencoded())
 app.use('/public', express.static('public'))
 app.use(express.static(path.join(process.cwd(), 'public')))
-app.use('/src/assets', express.static(path.join(process.cwd(), 'src/assets')))
 
 const renderServer = (manifest: Object = {}): express.Router => {
+  console.log('>>', 'RENDER SERVER')
   const routes = express.Router()
 
   // eslint-disable-next-line @typescript-eslint/no-misused-promises
@@ -28,6 +28,7 @@ const renderServer = (manifest: Object = {}): express.Router => {
 }
 
 const initServer = (manifest: Object | undefined = {}): void => {
+  console.log('>>', 'INIT SERVER')
   app.use('/', renderServer(manifest))
   app.use((req: express.Request, res: express.Response) => {
     res.send('errors/404')
@@ -35,6 +36,7 @@ const initServer = (manifest: Object | undefined = {}): void => {
 }
 
 if (!isProduction) {
+  console.log('>>', 'RUN DEV')
   app.use(
     runDevelopmentServer((manifest) => {
       initServer(manifest)
