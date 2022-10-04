@@ -1,8 +1,9 @@
 import * as React from 'react'
 import Navbar from './navbar'
-import ghost from '../../../assets/ghost.gif'
+import { useAssets } from '../utils/AssetsContext'
 
 const NotFoundPlaceholder = (): JSX.Element => {
+  const assets = useAssets()
   return (
     <div className='w-screen'>
         <Navbar backArrowAvailable = {false} />
@@ -10,7 +11,7 @@ const NotFoundPlaceholder = (): JSX.Element => {
           <div className='mx-auto my-auto'>
             <h1 className='font-bold text-3xl mx-auto w-full'>Page Not Found</h1>
             <img
-              src={ghost}
+              src={assets.getAsset('ghost.gif')}
               alt="Ghost GIF"
             />
           </div>

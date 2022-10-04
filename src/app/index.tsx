@@ -1,13 +1,21 @@
+import App from '../app/App'
 import * as React from 'react'
-import { useRoutes } from 'react-router-dom'
-import getRoutes from './routes'
+import * as ReactDOM from 'react-dom/client'
+import { BrowserRouter } from 'react-router-dom'
+import { AssetsProvider } from './common/utils/AssetsContext'
 
-const App = (): JSX.Element => {
-  const routes = useRoutes(getRoutes())
+const assetsMap =
+  typeof window !== 'undefined' ? window.__ASSETS_MAP__ ?? {} : {}
 
-  return (
-    <>{routes}</>
-  )
-}
+if (typeof window !== 'undefined') delete window.__ASSETS_MAP__
 
-export default App
+ReactDOM.hydrateRoot(
+  document.getElementById('root') as HTMLElement,
+  <React.StrictMode>
+    <AssetsProvider assetsMap={assetsMap}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </AssetsProvider>
+  </React.StrictMode>
+)

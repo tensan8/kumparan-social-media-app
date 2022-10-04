@@ -1,7 +1,6 @@
 import * as React from 'react'
-import logo from '../../../assets/logo.png'
-import backArrow from '../../../assets/back.png'
 import { useNavigate } from 'react-router-dom'
+import { useAssets } from '../utils/AssetsContext'
 
 const backArrowStyling = 'absolute w-6 h-6 left-10 top-6' as const
 
@@ -11,6 +10,7 @@ interface NavbarProps {
 
 const Navbar = (props: NavbarProps): JSX.Element => {
   const navigate = useNavigate()
+  const asset = useAssets()
 
   const handleBackArrowClicked = React.useCallback(() => {
     navigate(-1)
@@ -24,7 +24,7 @@ const Navbar = (props: NavbarProps): JSX.Element => {
         <div className='flex min-w-max bg-white rounded-b-3xl drop-shadow sticky top-0 z-50'>
             {props.backArrowAvailable
               ? <img
-                  src={backArrow}
+                  src={asset.getAsset('back.png')}
                   alt="Back Arrow"
                   className={`${backArrowStyling} cursor-pointer`}
                   onClick={handleBackArrowClicked}
@@ -35,7 +35,7 @@ const Navbar = (props: NavbarProps): JSX.Element => {
 
             <div className='mx-auto flex cursor-pointer' onClick={handleLogoClicked}>
                 <img
-                    src={logo}
+                    src={asset.getAsset('logo.png')}
                     alt="logo of kumparan"
                     className="w-36"
                 />

@@ -1,33 +1,20 @@
 {
   "compilerOptions": {
+    "experimentalDecorators": true,
     "target": "esnext",
     "module": "esnext",
-    "jsx": "react",
+    "jsx": "react-jsx",
     "strict": true,
     "moduleResolution": "node",
     "esModuleInterop": true,
-    "checkJs": false,
     "isolatedModules": true,
-    "typeRoots": [
-      "node_modules/@types",
-      "src/types"
-    ],
-    "resolveJsonModule": true,
+    "typeRoots": ["node_modules/@types"]
   },
-  "exclude": [
-    "node_modules",
-    "dist"
-  ],
-  "include": [
-    "src",
-    "declaration.d.ts"
-  ],
+  "exclude": ["node_modules", "dist"],
   "ts-node": {
     "compilerOptions": {
-      "module": "commonjs",
-      "allowJs": false,
-      "resolveJsonModule": true,
-      "esModuleInterop": true
+      "module": "commonjs"
     }
   }
 }
+
