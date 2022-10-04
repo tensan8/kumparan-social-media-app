@@ -1,8 +1,8 @@
 import * as React from 'react'
-import CommentIcon from '../../../assets/comment.png'
 import ContentText from './contentText'
 import TitleHeading from './titleHeading'
 import VerticalRedBar from './verticalRedBar'
+import { useAssets } from '../utils/assetsContext'
 
 interface SummaryCardContentProps {
   title: string
@@ -13,6 +13,8 @@ interface SummaryCardContentProps {
 }
 
 const SummaryCardContent = (props: SummaryCardContentProps): JSX.Element => {
+  const assets = useAssets()
+
   return (
     <div className="flex flex-col h-full w-full">
         <TitleHeading
@@ -32,7 +34,7 @@ const SummaryCardContent = (props: SummaryCardContentProps): JSX.Element => {
 
         <div className='flex'>
             <img
-                src={CommentIcon}
+                src={assets.getAsset('comment.png')}
                 alt="Comment Icon"
                 className="w-5 h-5 my-auto"
             />

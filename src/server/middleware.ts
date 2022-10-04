@@ -8,7 +8,7 @@ import config from '../../webpack.config'
 const isProduction = process.env.NODE_ENV === 'production'
 
 const compiler = webpack(config)
-const clientDir = path.join(process.cwd(), 'src/client/')
+const clientDir = path.join(process.cwd(), 'src/app/')
 
 if (!isProduction) {
   compiler.hooks.afterEmit.tap('cleanup-the-require-cache', () => {
@@ -32,7 +32,7 @@ const runDevelopmentServer = (callback = (manifest: Object = {}) => {}): any[] =
       const manifest = JSON.parse(
         // @ts-expect-error
         compiler.outputFileSystem.readFileSync(
-          path.join(process.cwd(), '../../dist', 'manifest.json'), 'utf8'
+          path.join(__dirname, '../../dist', 'manifest.json'), 'utf8'
         )
       )
       console.log('dev', manifest)
