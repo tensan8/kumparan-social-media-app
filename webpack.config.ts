@@ -4,6 +4,7 @@ import { WebpackManifestPlugin } from 'webpack-manifest-plugin'
 import { Configuration, HotModuleReplacementPlugin } from 'webpack'
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
+import CopyWebpackPlugin from 'copy-webpack-plugin'
 
 const isProduction = process.env.NODE_ENV === 'production'
 
@@ -23,6 +24,15 @@ const jsPlugins = !isProduction
   : [...sharedBabelPlugins]
 
 const sharedPlugins = [
+  // new LoadablePlugin(),
+  new CopyWebpackPlugin({
+    patterns: [
+      {
+        from: path.resolve(__dirname, 'src/assets'),
+        to: path.resolve(__dirname, 'dist/assets/[name].[contenthash][ext]')
+      }
+    ]
+  }),
   new MiniCssExtractPlugin({
     filename: '[name].bundle.css',
     chunkFilename: '[id].css'
@@ -78,17 +88,16 @@ const webpackConfig: Configuration = {
         include: path.resolve(__dirname, 'src'),
         exclude: /node_modules/,
         use: [
-          'style-loader',
+          {
+            loader: MiniCssExtractPlugin.loader
+          },
           'css-loader',
           'postcss-loader'
         ]
       },
       {
-        test: /\.(svg|png|jpe?g|gif)(\?.*)?$/i,
-        type: 'asset',
-        generator: {
-          filename: 'assets/images/[hash][ext][query]'
-        }
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        loader: 'file-loader'
       }
     ]
   },

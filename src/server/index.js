@@ -10,5 +10,6 @@ require.extensions['.woff2'] = function () {}
 require.extensions['.ico'] = function () {}
 require.extensions['.svg'] = function () {}
 require.extensions['.gif'] = function () {}
+require.extensions['.css'] = function () {}
 
 require('./app.ts')

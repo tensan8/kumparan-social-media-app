@@ -1,12 +1,12 @@
 import * as React from 'react'
 import VerticalRedBar from './verticalRedBar'
-import UserIcon from '../../../assets/user.png'
 import TitleHeading from './titleHeading'
 import ContentText from './contentText'
 import { CommentModel } from '../../../domain/models/comment'
 import { useNavigate } from 'react-router-dom'
 import { UserModel } from '../../../domain/models/user'
 import { PostModel } from '../../../domain/models/post'
+import { useAssets } from '../utils/AssetsContext'
 
 interface DetailCardContentProps {
   commentsList: CommentModel[] | null
@@ -16,6 +16,7 @@ interface DetailCardContentProps {
 
 const DetailCardContent = (props: DetailCardContentProps): JSX.Element => {
   const navigate = useNavigate()
+  const asset = useAssets()
 
   const profileClickCallback = React.useCallback(
     (userId: number) => () => {
@@ -28,7 +29,7 @@ const DetailCardContent = (props: DetailCardContentProps): JSX.Element => {
           className="flex pb-5 cursor-pointer w-max h-fit"
           onClick={profileClickCallback(Number(props.user?.id))}
         >
-            <img src={UserIcon} alt = "User Icon" className="w-9 h-9" />
+            <img src={asset.getAsset('user.png')} alt = "User Icon" className="w-9 h-9" />
             <div className="block pl-2 h-full my-auto pt-0.5">
                 <p className="text-xs text-gray font-heebo">{props.user?.username}</p>
                 <p className="text-xs text-gray font-heebo">{props.user?.company.get('name')}</p>
