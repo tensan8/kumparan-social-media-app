@@ -34,7 +34,7 @@ const SummaryCardContent = (props: SummaryCardContentProps): JSX.Element => {
 
         <div className='flex'>
             <img
-                src={assets.getAsset('comment.png')}
+                src={assets.getAsset('comment')}
                 alt="Comment Icon"
                 className="w-5 h-5 my-auto"
             />

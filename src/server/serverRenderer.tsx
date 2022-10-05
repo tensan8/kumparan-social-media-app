@@ -6,7 +6,7 @@ import App from '../app/app'
 import { AssetsProvider } from '../app/common/utils/assetsContext'
 import HtmlTemplate from '../app/htmlTemplate'
 
-export enum ErrorCode {
+export enum ServerCode {
   FORBIDDEN = 403,
   NOT_FOUND = 404,
   INTERNAL_SERVER_ERROR = 500,
@@ -40,10 +40,10 @@ const serverRenderer = (manifest: Object = {}) => async (req: Request, res: Resp
     )
 
     const content = renderToString(app)
-    return res.status(ErrorCode.OK).send(`<!DOCTYPE html> ${content}`)
+    return res.status(ServerCode.OK).send(`<!DOCTYPE html> ${content}`)
   } catch (e) {
     console.log(e)
-    return res.status(ErrorCode.INTERNAL_SERVER_ERROR).send('Something went wrong')
+    return res.status(ServerCode.INTERNAL_SERVER_ERROR).send('Something went wrong')
   }
 }
 

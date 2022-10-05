@@ -12,7 +12,7 @@ const NotFoundPlaceholder = (): JSX.Element => {
           <div className='mx-auto my-auto'>
             <h1 className='font-bold text-3xl mx-auto w-full'>Page Not Found</h1>
             <img
-              src={assets.getAsset('ghost.gif')}
+              src={assets.getAsset('ghost')}
               alt="Ghost GIF"
             />
           </div>

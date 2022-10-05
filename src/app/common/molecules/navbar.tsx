@@ -24,7 +24,7 @@ const Navbar = (props: NavbarProps): JSX.Element => {
         <div className='flex min-w-max bg-white rounded-b-3xl drop-shadow sticky top-0 z-50'>
             {props.backArrowAvailable
               ? <img
-                  src={assets.getAsset('back.png')}
+                  src={assets.getAsset('back')}
                   alt="Back Arrow"
                   className={`${backArrowStyling} cursor-pointer`}
                   onClick={handleBackArrowClicked}
@@ -35,7 +35,7 @@ const Navbar = (props: NavbarProps): JSX.Element => {
 
             <div className='mx-auto flex cursor-pointer' onClick={handleLogoClicked}>
                 <img
-                    src={assets.getAsset('logo.png')}
+                    src={assets.getAsset('logo')}
                     alt="logo of kumparan"
                     className="w-36"
                 />

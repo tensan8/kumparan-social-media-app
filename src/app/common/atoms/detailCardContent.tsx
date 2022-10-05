@@ -29,7 +29,7 @@ const DetailCardContent = (props: DetailCardContentProps): JSX.Element => {
           className="flex pb-5 cursor-pointer w-max h-fit"
           onClick={profileClickCallback(Number(props.user?.id))}
         >
-            <img src={asset.getAsset('user.png')} alt = "User Icon" className="w-9 h-9" />
+            <img src={asset.getAsset('user')} alt = "User Icon" className="w-9 h-9" />
             <div className="block pl-2 h-full my-auto pt-0.5">
                 <p className="text-xs text-gray font-heebo">{props.user?.username}</p>
                 <p className="text-xs text-gray font-heebo">{props.user?.company.get('name')}</p>
