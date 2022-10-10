@@ -4,7 +4,8 @@ import { renderToString } from 'react-dom/server'
 import { StaticRouter } from 'react-router-dom/server'
 import App from '../app/app'
 import { AssetsProvider } from '../app/common/utils/assetsContext'
-import HtmlTemplate from '../app/htmlTemplate'
+import { dehydrate, QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import ssrPrepass from 'react-ssr-prepass'
 
 export enum ServerCode {
   FORBIDDEN = 403,
@@ -18,33 +19,55 @@ const serverRenderer = (manifest: Object = {}) => async (req: Request, res: Resp
   console.log('Full Url: ', fullUrl)
   console.log('Request Url: ', req.url)
 
+  const queryClient = new QueryClient()
+
+  const assetsMap = manifest !== null
+    ? Object.fromEntries(Object.entries(manifest).filter(([key]) => key.includes('assets/')))
+    : {}
+
+  const app = (
+    <React.StrictMode>
+      <QueryClientProvider client={queryClient}>
+        <AssetsProvider assetsMap={assetsMap}>
+          <StaticRouter location={req.url}>
+            <App />
+          </StaticRouter>
+        </AssetsProvider>
+      </QueryClientProvider>
+    </React.StrictMode>
+  )
+
   try {
-    const assetsMap = manifest !== null
-      ? Object.fromEntries(Object.entries(manifest).filter(([key]) => key.includes('assets/')))
-      : {}
-
-    const app = (
-      <React.StrictMode>
-        <HtmlTemplate
-          assets={assetsMap}
-          mainScript={manifest['main.js' as keyof typeof manifest].toString()}
-          styleScript={manifest['main.css' as keyof typeof manifest].toString()}
-        >
-          <AssetsProvider assetsMap={assetsMap}>
-            <StaticRouter location={req.url}>
-              <App />
-            </StaticRouter>
-          </AssetsProvider>
-        </HtmlTemplate>
-      </React.StrictMode>
-    )
-
-    const content = renderToString(app)
-    return res.status(ServerCode.OK).send(`<!DOCTYPE html> ${content}`)
+    await ssrPrepass(app)
   } catch (e) {
     console.log(e)
     return res.status(ServerCode.INTERNAL_SERVER_ERROR).send('Something went wrong')
   }
+
+  const content = renderToString(app)
+
+  const dehydratedState = dehydrate(queryClient)
+
+  const html = `
+    <!doctype html>
+    <html lang="en">
+        <head>
+            <title>Kumparan Share</title>
+            <link href=${manifest['main.css' as keyof typeof manifest].toString()} rel="stylesheet"></link>
+        </head>
+        <body>
+            <div id="root">${content}</div>
+            <script src=${manifest['main.js' as keyof typeof manifest].toString()} defer></script>
+            <script>
+              window.__ASSETS_MAP__ = ${JSON.stringify(assetsMap)}
+            </script>
+            <script>
+              window.__REACT_QUERY_STATE__ = ${JSON.stringify(dehydratedState)}
+            </script>
+        </body>
+    </html>`
+
+  return res.status(ServerCode.OK).send(html)
 }
 
 export default serverRenderer
