@@ -19,7 +19,13 @@ const serverRenderer = (manifest: Object = {}) => async (req: Request, res: Resp
   console.log('Full Url: ', fullUrl)
   console.log('Request Url: ', req.url)
 
-  const queryClient = new QueryClient()
+  const queryClient = new QueryClient({
+    defaultOptions: {
+      queries: {
+        refetchOnWindowFocus: false
+      }
+    }
+  })
 
   const assetsMap = manifest !== null
     ? Object.fromEntries(Object.entries(manifest).filter(([key]) => key.includes('assets/')))

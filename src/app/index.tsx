@@ -11,7 +11,13 @@ const dehydratedState = window.__REACT_QUERY_STATE__
 
 if (typeof window !== 'undefined') delete window.__ASSETS_MAP__
 
-const queryClient = new QueryClient()
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false
+    }
+  }
+})
 
 ReactDOM.hydrateRoot(
   document.getElementById('root') as HTMLElement,
