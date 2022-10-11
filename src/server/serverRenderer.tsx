@@ -73,7 +73,7 @@ const serverRenderer = (manifest: Object = {}) => async (req: Request, res: Resp
         </body>
     </html>`
 
-  return res.status(ServerCode.OK).send(html)
+  res.status(ServerCode.OK).send(html)
 }
 
 export default serverRenderer

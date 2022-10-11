@@ -7,7 +7,9 @@ const App = (): JSX.Element => {
   const routes = useRoutes(getRoutes())
 
   return (
-    <>{routes}</>
+    <React.Suspense fallback = {'loading'}>
+      {routes}
+    </React.Suspense>
   )
 }
 
