@@ -7,7 +7,7 @@ export const GetAllUsersQuery = (): UseQueryResult<UserDTO[], any> => {
   return useQuery<UserDTO[], any>(
     ['allUsers'],
     async () => await fetcher('https://jsonplaceholder.typicode.com/users'),
-    { suspense: true }
+    { suspense: true, staleTime: Infinity }
   )
 }
 

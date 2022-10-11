@@ -6,6 +6,6 @@ export const AllCommentsQuery = (): UseQueryResult<CommentDTO[], any> => {
   return useQuery<CommentDTO[], any>(
     ['allComments'],
     async () => await fetcher('https://jsonplaceholder.typicode.com/comments'),
-    { suspense: true }
+    { suspense: true, staleTime: Infinity }
   )
 }
