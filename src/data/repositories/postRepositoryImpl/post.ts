@@ -9,6 +9,8 @@ export const GetAllPosts = (): PostRepository.AllPosts => {
   const result = new Result<PostModel[]>()
   const { data } = PostDataSource.AllPostQuery()
 
+  console.log(data !== null && data !== undefined ? data[1] : {})
+
   const retrieveAllPosts = (data != null)
     ? data.map((data: PostDTO) => mapPostModel(data))
     : []
