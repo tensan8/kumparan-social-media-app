@@ -19,8 +19,6 @@ const queryClient = new QueryClient({
   }
 })
 
-// console.log(dehydratedState)
-
 ReactDOM.hydrateRoot(
   document.getElementById('root') as HTMLElement,
   <React.StrictMode>
