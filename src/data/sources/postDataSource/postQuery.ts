@@ -17,6 +17,8 @@ export const SinglePostQuery = (postId: number): UseQueryResult<PostDTO, any> =>
     {
       suspense: true,
       staleTime: Infinity,
-      initialData: () => useQueryClient().getQueryData<PostDTO[]>(['allPosts'])?.find(data => data.id === postId)
+      initialData: () => {
+        return useQueryClient().getQueryData<PostDTO[]>(['allPosts'])?.find(data => data.id === postId)
+      }
     })
 }

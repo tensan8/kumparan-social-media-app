@@ -15,8 +15,6 @@ const PostDetail = (): JSX.Element => {
   const { user } = useDetailPageUserInfoViewModel(Number(params.get('userId')))
   const { post } = useDetailPagePostViewModel(Number(params.get('postId')))
 
-  console.log(post)
-
   return (
     params.get('userId') != null && params.get('postId') != null
       ? <div className='block pb-10'>
