@@ -9,10 +9,7 @@ export const PostCommentQuery = (postId: number): UseQueryResult<CommentDTO[], a
     {
       suspense: true,
       staleTime: Infinity,
-      initialData: () => {
-        const allComments = useQueryClient().getQueryData<CommentDTO[]>(['allComments'])
-        return allComments?.flatMap((comment: CommentDTO) => comment.postId === postId ? comment : [])
-      }
+      initialData: () => useQueryClient().getQueryData<CommentDTO[]>(['allComments'])?.flatMap((comment: CommentDTO) => comment.postId === postId ? comment : [])
     }
   )
 }

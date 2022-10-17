@@ -14,9 +14,6 @@ export const SingleAlbumQuery = (albumId: number): UseQueryResult<AlbumDTO, any>
   return useQuery<AlbumDTO, any>(
     ['singleAlbum'],
     async () => await fetcher(`https://jsonplaceholder.typicode.com/albums/${albumId}`),
-    {
-      suspense: true,
-      staleTime: Infinity
-    }
+    { suspense: true, staleTime: Infinity }
   )
 }

@@ -1,22 +1,19 @@
 import * as React from 'react'
-import { AlbumModel } from '../../../domain/models/album'
-import { useProfilePagePhotoOnAlbumViewModel } from '../../profilePage/viewModels/profilePagePhotosOnAlbumViewModel'
 import ThumbnailWithTitle from './thumbnailWithTitle'
 
 interface AlbumThumbnailsProps {
-  album: AlbumModel
+  albumTitle: string
+  thumbnail: string
   username: string
   albumClickCallback?: (params: any) => any
 }
 
 const AlbumThumbnails = (props: AlbumThumbnailsProps): JSX.Element => {
-  const { photos } = useProfilePagePhotoOnAlbumViewModel(props.album.id)
-
   return (
     <ThumbnailWithTitle
-      text = {props.album.title}
-      thumbnailUrl = {photos != null && photos.length > 0 ? photos[0].thumbnailUrl : ''}
-      clickCallback = {photos != null && photos.length > 0 ? props.albumClickCallback : undefined}
+      text = {props.albumTitle}
+      thumbnailUrl = {props.thumbnail}
+      clickCallback = {props.albumClickCallback}
     />
   )
 }
