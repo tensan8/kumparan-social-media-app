@@ -12,8 +12,8 @@ export const AllAlbumsQuery = (userId: number): UseQueryResult<AlbumDTO[], any> 
 
 export const SingleAlbumQuery = (albumId: number): UseQueryResult<AlbumDTO, any> => {
   return useQuery<AlbumDTO, any>(
-    ['singleAlbum'],
+    [`singleAlbum-${albumId}`],
     async () => await fetcher(`https://jsonplaceholder.typicode.com/albums/${albumId}`),
-    { suspense: true, staleTime: Infinity }
+    { suspense: true }
   )
 }

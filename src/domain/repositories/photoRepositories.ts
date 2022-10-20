@@ -9,3 +9,5 @@ export type SinglePhotoResult = Result<PhotoModel>
 export interface AlbumThumbnails extends BaseRepository<PhotosResult> { }
 
 export interface SinglePhoto extends BaseRepository<SinglePhotoResult> { }
+
+export interface PhotosOnAlbum extends BaseRepository<PhotosResult> { }
