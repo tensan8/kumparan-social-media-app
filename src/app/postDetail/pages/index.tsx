@@ -16,7 +16,7 @@ const PostDetail = (): JSX.Element => {
   const { post } = useDetailPagePostViewModel(Number(params.get('postId')))
 
   return (
-    params.get('userId') != null && params.get('postId') != null
+    user != null && post != null
       ? <div className='block pb-10'>
           <Navbar
               backArrowAvailable={true}

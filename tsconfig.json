@@ -9,6 +9,7 @@
     "esModuleInterop": true,
     "isolatedModules": true,
     "typeRoots": ["node_modules/@types"],
+    "sourceMap": true
   },
   "exclude": ["node_modules", "dist"],
   "ts-node": {

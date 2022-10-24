@@ -1,11 +1,11 @@
 import { GetSingleUser } from '../../../data/repositories/userRepositoryImpl'
 import { UserModel } from '../../../domain/models/user'
 
-interface DetailPageUserInfoViewModel {
+interface AlbumPhotoPageUserViewModel {
   user: UserModel | null
 }
 
-export const useDetailPageUserInfoViewModel = (userId: number): DetailPageUserInfoViewModel => {
+export const useAlbumPhotoPageUserViewModel = (userId: number): AlbumPhotoPageUserViewModel => {
   const { result } = GetSingleUser(userId)
 
   return {

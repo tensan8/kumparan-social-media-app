@@ -1,11 +1,19 @@
+import { UseQueryResult, useQuery } from '@tanstack/react-query'
 import { fetcher } from '../../utils/fetcher'
-import useSWR, { SWRResponse } from 'swr'
 import { AlbumDTO } from '../dtos/albumDTO'
 
-export const AllAlbumsQuery = (userId: number): SWRResponse<AlbumDTO[], any> => {
-  return useSWR<AlbumDTO[], any>(`https://jsonplaceholder.typicode.com/users/${userId}/albums`, fetcher)
+export const AllAlbumsQuery = (userId: number): UseQueryResult<AlbumDTO[], any> => {
+  return useQuery<AlbumDTO[], any>(
+    [`allAlbums-${userId}`],
+    async () => await fetcher(`https://jsonplaceholder.typicode.com/users/${userId}/albums`),
+    { suspense: true }
+  )
 }
 
-export const SingleAlbumQuery = (albumId: number): SWRResponse<AlbumDTO, any> => {
-  return useSWR<AlbumDTO, any>(`https://jsonplaceholder.typicode.com/albums/${albumId}`, fetcher)
+export const SingleAlbumQuery = (albumId: number): UseQueryResult<AlbumDTO, any> => {
+  return useQuery<AlbumDTO, any>(
+    [`singleAlbum-${albumId}`],
+    async () => await fetcher(`https://jsonplaceholder.typicode.com/albums/${albumId}`),
+    { suspense: true }
+  )
 }

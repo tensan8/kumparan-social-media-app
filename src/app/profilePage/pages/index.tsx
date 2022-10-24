@@ -16,7 +16,7 @@ const ProfilePage = (): JSX.Element => {
   const { user } = useProfilePageUserInfoViewModel(Number(params.get('userId')))
 
   return (
-    params.get('userId') != null
+    user != null
       ? <div className="block pb-10">
           <Navbar
               backArrowAvailable = {true}
@@ -25,12 +25,10 @@ const ProfilePage = (): JSX.Element => {
             username = {user?.username ?? ''}
           />
           <Card
-            element={
-              user != null
-                ? <ContactDetailContent
-                    user = {user}
-                  />
-                : <div></div>
+            element = {
+              <ContactDetailContent
+                user = {user}
+              />
             }
             clickable={false}
             cardSize = 'full'
@@ -41,7 +39,7 @@ const ProfilePage = (): JSX.Element => {
               albums != null && albums.length > 0
                 ? <AlbumContents
                     albums={albums}
-                    username={user?.username ?? ''}
+                    user={user}
                   />
                 : <p>Loading...</p>
             }

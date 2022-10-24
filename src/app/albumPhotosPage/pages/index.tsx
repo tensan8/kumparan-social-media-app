@@ -7,6 +7,7 @@ import { useAlbumPhotoPageSingleAlbumViewModel } from '../viewModels/albumPhotoP
 import ProfileHead from '../../common/molecules/profileHead'
 import { useAlbumPhotoPagePhotosViewModel } from '../viewModels/albumPhotoPagePhotosViewModel'
 import NotFoundPlaceholder from '../../common/molecules/notFoundPlaceholder'
+import { useAlbumPhotoPageUserViewModel } from '../viewModels/albumPhotoPageUserViewModel'
 
 const AlbumPhotoPage = (): JSX.Element => {
   React.useEffect(() => {
@@ -17,19 +18,20 @@ const AlbumPhotoPage = (): JSX.Element => {
 
   const { album } = useAlbumPhotoPageSingleAlbumViewModel(Number(params.get('albumId')))
   const { photos } = useAlbumPhotoPagePhotosViewModel(Number(params.get('albumId')))
+  const { user } = useAlbumPhotoPageUserViewModel(Number(params.get('userId')))
 
   return (
-    params.get('username') != null && params.get('albumId') != null
+    user != null && album != null && photos != null
       ? <div className="block pb-10">
           <Navbar
               backArrowAvailable = {true}
           />
           <ProfileHead
-              username = {params.get('username') ?? ''}
+              username = {user.username}
           />
           <Card
             element = {
-              album != null && photos != null && photos.length > 0
+              photos.length > 0
                 ? <AllPhotosContent
                     album = {album}
                     photos = {photos}

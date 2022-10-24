@@ -1,11 +1,12 @@
 import * as React from 'react'
 import { RouteObject } from 'react-router-dom'
-import loadable from '@loadable/component'
 import PostDetail from './postDetail/pages'
 import ProfilePage from './profilePage/pages'
 import AlbumPhotoPage from './albumPhotosPage/pages'
 import NotFoundPlaceholder from './common/molecules/notFoundPlaceholder'
-import EnlargedPhotoPage from './enlargedPhotoPage/pages/indext'
+import EnlargedPhotoPage from './enlargedPhotoPage/pages'
+import Homepage from './homepage/pages'
+import NotFoundWrapper from './common/utils/notFoundWrapper'
 
 interface ExtendedRouteObject extends RouteObject {
   validation?: boolean
@@ -13,8 +14,6 @@ interface ExtendedRouteObject extends RouteObject {
   restricted?: boolean
   children?: ExtendedRouteObject[]
 }
-
-const Homepage = loadable(async () => await import('./homepage/pages'))
 
 export enum RoutePath {
   HOMEPAGE = '/homepage',
@@ -35,19 +34,31 @@ const routeObject: ExtendedRouteObject[] = [
   },
   {
     path: RoutePath.POST_DETAIL,
-    element: <PostDetail />
+    element:
+      <NotFoundWrapper queryStrings={['userId', 'postId']}>
+        <PostDetail />
+      </NotFoundWrapper>
   },
   {
     path: RoutePath.PROFILE,
-    element: <ProfilePage />
+    element:
+      <NotFoundWrapper queryStrings={['userId']}>
+        <ProfilePage />
+      </NotFoundWrapper>
   },
   {
     path: RoutePath.ALBUM_PHOTOS,
-    element: <AlbumPhotoPage />
+    element:
+      <NotFoundWrapper queryStrings={['userId', 'albumId']}>
+        <AlbumPhotoPage />
+      </NotFoundWrapper>
   },
   {
     path: RoutePath.ENLARGED_PHOTO,
-    element: <EnlargedPhotoPage />
+    element:
+      <NotFoundWrapper queryStrings={['userId', 'albumId', 'photoId']}>
+        <EnlargedPhotoPage />
+      </NotFoundWrapper>
   },
   {
     path: '*',

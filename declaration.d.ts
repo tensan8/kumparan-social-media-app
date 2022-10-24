@@ -6,5 +6,6 @@ declare global {
     __ASSETS_MAP__?: {
       [key: string]: string
     }
+    __REACT_QUERY_STATE__: any
   }
 }

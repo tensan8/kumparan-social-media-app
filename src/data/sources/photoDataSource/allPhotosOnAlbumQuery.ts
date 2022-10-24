@@ -1,7 +1,16 @@
+import { UseQueryResult, useQuery } from '@tanstack/react-query'
 import { fetcher } from '../../utils/fetcher'
-import useSWR, { SWRResponse } from 'swr'
 import { PhotoDTO } from '../dtos/photoDTO'
 
-export const AllPhotosOnAlbumQuery = (albumId: number): SWRResponse<PhotoDTO[], any> => {
-  return useSWR<PhotoDTO[], any>(`https://jsonplaceholder.typicode.com/albums/${albumId}/photos`, fetcher)
+export const AllPhotosOnAlbumQuery = (albumsIdList: number[]): Array<UseQueryResult<PhotoDTO[], any>> => {
+  return albumsIdList.map((albumId: number) => {
+    return useQuery<PhotoDTO[], any>(
+      ['photoOnAlbum', albumId],
+      async () => await fetcher(`https://jsonplaceholder.typicode.com/albums/${albumId}/photos`),
+      {
+        suspense: true,
+        staleTime: Infinity
+      }
+    )
+  })
 }

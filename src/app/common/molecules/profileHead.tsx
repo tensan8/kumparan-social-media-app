@@ -2,7 +2,7 @@ import * as React from 'react'
 import { useAssets } from '../utils/assetsContext'
 
 interface ProfileHeadProps {
-  username: string
+  username: string | null
 }
 
 const ProfileHead = (props: ProfileHeadProps): JSX.Element => {
