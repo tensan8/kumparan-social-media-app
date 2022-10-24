@@ -11,7 +11,7 @@ const NotFoundWrapper: React.FC<PropsWithChildren<NotFoundWrapperProps>> = ({ qu
   const params = new URLSearchParams(useLocation().search)
 
   for (const query of queryStrings) {
-    if (Number(params.get(query)) === 0) return <NotFoundPlaceholder/>
+    if (params.get(query) === null) return <NotFoundPlaceholder/>
   }
 
   return children

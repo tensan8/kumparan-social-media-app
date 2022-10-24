@@ -12,11 +12,10 @@ export const AllPostQuery = (): UseQueryResult<PostDTO[], any> => {
 
 export const SinglePostQuery = (postId: number): UseQueryResult<PostDTO, any> => {
   return useQuery<PostDTO, any>(
-    ['singlePost'],
+    [`singlePost-${postId}`],
     async () => await fetcher(`https://jsonplaceholder.typicode.com/posts/${postId}`),
     {
       suspense: true,
-      staleTime: Infinity,
       initialData: () => {
         return useQueryClient().getQueryData<PostDTO[]>(['allPosts'])?.find(data => data.id === postId)
       }

@@ -4,9 +4,9 @@ import { AlbumDTO } from '../dtos/albumDTO'
 
 export const AllAlbumsQuery = (userId: number): UseQueryResult<AlbumDTO[], any> => {
   return useQuery<AlbumDTO[], any>(
-    ['allAlbums'],
+    [`allAlbums-${userId}`],
     async () => await fetcher(`https://jsonplaceholder.typicode.com/users/${userId}/albums`),
-    { suspense: true, staleTime: Infinity }
+    { suspense: true }
   )
 }
 

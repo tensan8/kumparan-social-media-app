@@ -4,7 +4,7 @@ import PostDetail from './postDetail/pages'
 import ProfilePage from './profilePage/pages'
 import AlbumPhotoPage from './albumPhotosPage/pages'
 import NotFoundPlaceholder from './common/molecules/notFoundPlaceholder'
-import EnlargedPhotoPage from './enlargedPhotoPage/pages/indext'
+import EnlargedPhotoPage from './enlargedPhotoPage/pages'
 import Homepage from './homepage/pages'
 import NotFoundWrapper from './common/utils/notFoundWrapper'
 
@@ -49,14 +49,14 @@ const routeObject: ExtendedRouteObject[] = [
   {
     path: RoutePath.ALBUM_PHOTOS,
     element:
-      <NotFoundWrapper queryStrings={['albumId']}>
+      <NotFoundWrapper queryStrings={['userId', 'albumId']}>
         <AlbumPhotoPage />
       </NotFoundWrapper>
   },
   {
     path: RoutePath.ENLARGED_PHOTO,
     element:
-      <NotFoundWrapper queryStrings={['photoId']}>
+      <NotFoundWrapper queryStrings={['userId', 'albumId', 'photoId']}>
         <EnlargedPhotoPage />
       </NotFoundWrapper>
   },

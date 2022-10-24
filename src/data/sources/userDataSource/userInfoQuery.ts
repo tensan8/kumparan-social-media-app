@@ -12,11 +12,10 @@ export const GetAllUsersQuery = (): UseQueryResult<UserDTO[], any> => {
 
 export const GetSingleUserQuery = (userId: number): UseQueryResult<UserDTO, any> => {
   return useQuery<UserDTO, any>(
-    ['singleUser'],
+    [`singleUser-${userId}`],
     async () => await fetcher(`https://jsonplaceholder.typicode.com/users/${userId}`),
     {
       suspense: true,
-      staleTime: Infinity,
       initialData: () => useQueryClient().getQueryData<UserDTO[]>(['allUsers'])?.find(user => user.id === userId)
     }
   )

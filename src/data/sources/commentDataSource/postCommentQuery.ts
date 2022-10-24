@@ -4,11 +4,10 @@ import { CommentDTO } from '../dtos/commentDTO'
 
 export const PostCommentQuery = (postId: number): UseQueryResult<CommentDTO[], any> => {
   return useQuery<CommentDTO[]>(
-    ['singleComment'],
+    [`singleComment-${postId}`],
     async () => await fetcher(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`),
     {
       suspense: true,
-      staleTime: Infinity,
       initialData: () => useQueryClient().getQueryData<CommentDTO[]>(['allComments'])?.flatMap((comment: CommentDTO) => comment.postId === postId ? comment : [])
     }
   )

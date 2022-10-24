@@ -4,10 +4,11 @@ import { AlbumModel } from '../../../domain/models/album'
 import AlbumThumbnails from '../atoms/albumThumbnails'
 import TitleHeading from '../atoms/titleHeading'
 import { useProfilePagePhotoOnAlbumViewModel } from '../../profilePage/viewModels/profilePagePhotosOnAlbumViewModel'
+import { UserModel } from '../../../domain/models/user'
 
 interface AlbumContentsProps {
   albums: AlbumModel[]
-  username: string
+  user: UserModel
 }
 
 const AlbumContents = (props: AlbumContentsProps): JSX.Element => {
@@ -20,7 +21,7 @@ const AlbumContents = (props: AlbumContentsProps): JSX.Element => {
 
   const albumClickCallback = React.useCallback(
     (albumId: number) => () => {
-      navigate(`/album-photos?username=${props.username}&albumId=${albumId}`)
+      navigate(`/album-photos?userId=${props.user.id}&albumId=${albumId}`)
     }, [])
 
   return (
@@ -36,7 +37,7 @@ const AlbumContents = (props: AlbumContentsProps): JSX.Element => {
             <AlbumThumbnails
               albumTitle = {album.title}
               thumbnail = {photos != null ? photos[index].thumbnailUrl : ''}
-              username = {props.username}
+              username = {props.user.username}
               albumClickCallback = {albumClickCallback(album.id)}
               key = {index}
             />

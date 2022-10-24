@@ -6,6 +6,8 @@ import Navbar from '../../common/molecules/navbar'
 import NotFoundPlaceholder from '../../common/molecules/notFoundPlaceholder'
 import ProfileHead from '../../common/molecules/profileHead'
 import { useEnlargedPhotoViewModel } from '../viewModels/enlargedPhotoViewModel'
+import { useEnlargedPhotoUserViewModel } from '../viewModels/enlargedPhotoUserViewModel'
+import { useEnlargedPhotoAlbumViewModel } from '../viewModels/enlargedPhotoAlbumViewModel'
 
 const EnlargedPhotoPage = (): JSX.Element => {
   React.useEffect(() => {
@@ -15,24 +17,24 @@ const EnlargedPhotoPage = (): JSX.Element => {
   const params = new URLSearchParams(useLocation().search)
 
   const { photo } = useEnlargedPhotoViewModel(Number(params.get('photoId')))
+  const { user } = useEnlargedPhotoUserViewModel(Number(params.get('userId')))
+  const { album } = useEnlargedPhotoAlbumViewModel(Number(params.get('albumId')))
 
   return (
-    params.get('username') != null && params.get('albumName') != null && params.get('photoId') != null
+    user != null && album != null && photo != null
       ? <div className='block pb-10'>
             <Navbar
                 backArrowAvailable = { true }
             />
             <ProfileHead
-                username = {params.get('username') ?? ''}
+                username = {user.username}
             />
             <Card
                 element={
-                    photo != null
-                      ? <EnlargedPhotoContent
-                            albumTitle = {params.get('albumName') ?? ''}
-                            chosenPhoto = {photo}
-                        />
-                      : <div></div>
+                   <EnlargedPhotoContent
+                        albumTitle = {album.title}
+                        chosenPhoto = {photo}
+                    />
                 }
                 clickable={false}
                 cardSize = 'full'
